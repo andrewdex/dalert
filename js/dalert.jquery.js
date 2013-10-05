@@ -6,63 +6,47 @@ Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
 Info & API : http://www.dalert.andrewdex.com
 Contribute : http://www.github.com/andrewdex/dalert
 
-* dalert("Making the Alert Box much simpler, yet fancy");
-*/
+ * dalert("Making the Alert Box much simpler, yet fancy");
+ */
 
-//Default Dalert Implementation
-function dalert(msg,title) {
-	
-	if (title==null){
-		title="Dalert";
-	}
-	
-	if (msg !== null) {
-	
 
-		$("body").append("<div id='dialog' style='display:none' title='" + title + "'>" + msg + "</div>");
-		$("#dialog").dialog({
-			modal:true
-			});
-	
-	} else {
-		return false;
-	
-	}
-	
-	
-}
+var dx =  { 
 
-//
-var d = {
-		
-//		init: function()
-//		{
-//			
-//			dalert();
-//		},
+	dalert : function (output_msg, title_msg, color) {
+	    if (!title_msg)
+	        title_msg = 'DAlert';
 
-	    dalert: function(msg,title) {
-	    	
-	    	if (title==null){
-	    		title="Dalert";
-	    	}
-	    	
-	    	if (msg !== null) {
-	    	
+	    if (!color)
+	        color = 'black';
 
-	    		$("body").append("<div id='dialog' style='display:none' title='" + title + "'>" + msg + "</div>");
-	    		$("#dialog").dialog({
-	    			modal:true
-	    			});
-	    	
-	    	} else {
-	    		return false;
-	    	
-	    	}
-	    	
-	    },
+	    if (!output_msg)
+	        output_msg = 'No Message to Display.';
 
-	    confirm: function() {
+	    try {
+	        $("<div></div>").html(output_msg).dialog({
+	            title: title_msg,
+	            resizable: false,
+	            modal: true,
+	            buttons: {
+	                "Ok": function () {
+	                    $(this).dialog("close");
+
+	                }
+	            }
+	        });
+
+	        $(".ui-widget-content").css("color", color);
 	    }
-	};
-//d.init();
+	    catch (error) {
+
+	        alert(output_msg);
+	    }
+
+
+
+	},
+
+	confirm : function() {
+	// Undercon
+	}
+};
