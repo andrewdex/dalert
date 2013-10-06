@@ -45,8 +45,19 @@ var dx =  {
 
 
 	},
-
-	confirm : function() {
+	//Dalert Confirm Dialog
+	dconfirm : function() {
 
 	}
+	
+
+	
+	
 };
+
+
+//alert impl
+
+//window.alert = function(msg){
+//    dx.dalert("Hello");
+//}
