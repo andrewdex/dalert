@@ -48,6 +48,12 @@ var dx =  {
 	//Dalert Confirm Dialog
 	dconfirm : function() {
 
+	},
+	
+	ReplaceAlert: function(){
+		
+		window.alert=dx.dalert;
+		
 	}
 	
 

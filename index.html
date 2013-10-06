@@ -23,7 +23,7 @@
 $("#test").click(function(){
 	dx.dalert(); //Protected Function Call Under a namespace 'd' - Reccomended 
 	//alert();
-	window.alert=dx.dalert;
+	dx.ReplaceAlert();
 	alert();
 
 });
