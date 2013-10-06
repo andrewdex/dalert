@@ -47,6 +47,6 @@ var dx =  {
 	},
 
 	confirm : function() {
-	// Undercon
+
 	}
 };
