@@ -10,8 +10,12 @@
 
 <body>
 
+<div align="center">
+
 <input id="test" type="button" value="Click" />
 <input id="test1" type="button" value="Click2" />
+
+</div>
 
 
 <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
@@ -32,24 +36,17 @@ function no(){
 }
 
 $("#test").click(function(){
-//	dx.dalert(); //Protected Function Call Under a namespace 'd' - Reccomended 
-	//alert();
-//	dx.ReplaceAlert();
-//	alert();
-//	var fname=prompt("Please enter your name:");
-//	var dex = dx.dprompt();
-	//alert(dex);
+
+	//Call DAlert
+	dalert.alert("This is a simple DAlert Message !");
 	
-	//dalert.confirm("Hello, Are you sure?","yes");
-	dalert.ReplaceConfirm();
-	confirm("Please Send me your name?","yes","no");
 });
 
 
 
 $("#test1").click(function(){
 	
-	//alert(get);
+	alert(get);
 	
 	
 	

@@ -1,17 +1,17 @@
 /*
-* DAlert jQueryPlugin
-* dalert.alert("Making the Alert Box much simpler, yet fancy");
-* Version: 1.0 (Beta)
-* Author: Andrew dEX (Dilusha)
-* Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
-* Info & API : http://dalert.andrewdex.com
-* Contribute : http://www.github.com/andrewdex/dalert
-* 
-* Copyright 2013 Andrew dEX (Dilusha Gonagala)
-* 
-* Released under the MIT license
-*http://opensource.org/licenses/MIT
-*Permission is hereby granted, free of charge, to any person obtaining a copy
+ * DAlert jQueryPlugin
+ * dalert.alert("Making the Alert Box much simpler, yet fancy");
+ * Version: 1.0 (Alpha)
+ * Author: Andrew dEX (Dilusha)
+ * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
+ * Info & API : http://dalert.andrewdex.com
+ * Contribute : http://www.github.com/andrewdex/dalert
+ * 
+ * Copyright 2013 Andrew dEX (Dilusha Gonagala)
+ * 
+ * Released under the MIT license
+ *http://opensource.org/licenses/MIT
+ *Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -28,11 +28,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*
-*/
+ *
+ */
 
 var dalert = {
 
+		
+	byPassjQueryUI : function() {
+		
+		$(".ui-button-text-only .ui-button-text").css("padding-left","20px");
+		$(".ui-button-text-only .ui-button-text").css("padding-right","20px");
+		$(".ui-button-text-only .ui-button-text").css("padding-top", "0px");
+		$(".ui-button-text-only .ui-button-text").css("padding-bottom","0px");
+		
+	},
+	
 	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
 		if (!title_msg)
 			title_msg = 'DAlert';
@@ -58,9 +68,10 @@ var dalert = {
 					}
 				}
 			});
-			//jQuery UI-CSS Framework ByPass
+			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
+			dalert.byPassjQueryUI();
 
 		} catch (error) {
 
@@ -69,7 +80,7 @@ var dalert = {
 
 	},
 
-	//DAlert Confirm Dialog
+	// DAlert Confirm Dialog
 	confirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
 			FontColor, bodyColor) {
 
@@ -123,49 +134,8 @@ var dalert = {
 		}
 
 	},
-	
-	prompt : function(prompt_msg) {
-		var dprompt_v = "dex is now";
-		if (!prompt_msg)
-			prompt_msg = 'What is your name please? ';
 
-		//		    if (!FontColor)
-		//		    	FontColor = 'black';
-		//		    
-		//		    if(!bodyColor)
-		//		    	bodyColor='rgb(10, 60, 65)';
-
-		//    try {
-		$("<div></div>").html(
-				prompt_msg + "<input name='dprompt_val' type='text'/>").dialog(
-				{
-					title : 'hellow',
-					resizable : false,
-					modal : true,
-					buttons : {
-						"Ok" : function() {
-							alert("ssss");
-							dprompt_v = $(this).find(
-									'input[name="dprompt_val"]').val();
-							alert(dprompt_v);
-							$(this).dialog("close");
-
-						}
-					}
-				});
-
-		//		        $(".ui-widget-content").css("color", FontColor);
-		//		        $(".ui-widget-content").css("background", bodyColor);
-
-		//    }
-		//    catch (error) {
-
-		//        alert(prompt_msg);
-		//    }
-
-		return dprompt_v;
-	},
-	//Replace DAlert With Window JavaScript Original objects : alert, confirm etc.	
+	// Replace DAlert With Window JavaScript Original objects : alert, confirm.
 	ReplaceAlert : function() {
 
 		window.alert = dalert.alert;
