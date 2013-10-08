@@ -9,122 +9,110 @@ Contribute : http://www.github.com/andrewdex/dalert
  * dalert("Making the Alert Box much simpler, yet fancy");
  */
 
+var dx = {
 
+	dalert : function(dalert_msg, title_msg, FontColor, bodyColor) {
+		if (!title_msg)
+			title_msg = 'DAlert';
 
-var dx =  { 
+		if (!FontColor)
+			FontColor = 'black';
 
-	
-	dalert : function (dalert_msg, title_msg, FontColor,bodyColor) {
-	    if (!title_msg)
-	        title_msg = 'DAlert';
+		if (!bodyColor)
+			bodyColor = 'rgb(10, 60, 65)';
 
-	    if (!FontColor)
-	    	FontColor = 'black';
-	    
-	    if(!bodyColor)
-	    	bodyColor='rgb(10, 60, 65)';
+		if (!dalert_msg)
+			dalert_msg = 'This is a Dalert !';
 
-	    if (!dalert_msg)
-	    	dalert_msg = 'This is a Dalert !';
+		try {
+			$("<div></div>").html(dalert_msg).dialog({
+				title : title_msg,
+				resizable : false,
+				modal : true,
+				buttons : {
+					"Ok" : function() {
+						$(this).dialog("close");
 
-	    try {
-	        $("<div></div>").html(dalert_msg).dialog({
-	            title: title_msg,
-	            resizable: false,
-	            modal: true,
-	            buttons: {
-	                "Ok": function () {
-	                    $(this).dialog("close");
+					}
+				}
+			});
+			//jQuery UI-CSS Framework ByPass
+			$(".ui-widget-content").css("color", FontColor);
+			$(".ui-widget-content").css("background", bodyColor);
 
-	                }
-	            }
-	        });
-	        //jQuery UI-CSS Framework ByPass
-	        $(".ui-widget-content").css("color", FontColor);
-	        $(".ui-widget-content").css("background", bodyColor);
-	        
-	    }
-	    catch (error) {
+		} catch (error) {
 
-	        alert(dalert_msg);
-	    }
-
-
+			alert(dalert_msg);
+		}
 
 	},
 
-	
 	//Dalert Confirm Dialog
-	dconfirm : function(dalertConf_msg,trueFunction,falseFunction, title_msg, FontColor,bodyColor) {
+	dconfirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
+			FontColor, bodyColor) {
 
-		 if (!title_msg)
-		        title_msg = 'DAlert';
+		if (!title_msg)
+			title_msg = 'DAlert';
 
-		    if (!FontColor)
-		    	FontColor = 'black';
-		    
-		    if(!bodyColor)
-		    	bodyColor='rgb(10, 60, 65)';
+		if (!FontColor)
+			FontColor = 'black';
 
-		    if (!dalertConf_msg)
-		    	dalertConf_msg = 'This is a Dalert Confirm !';
+		if (!bodyColor)
+			bodyColor = 'rgb(10, 60, 65)';
 
-		    try {
-		        $("<div></div>").html(dalertConf_msg).dialog({
-		            title: title_msg,
-		            resizable: false,
-		            modal: true,
-		            buttons: {
-		                "Ok": function () {
+		if (!dalertConf_msg)
+			dalertConf_msg = 'This is a Dalert Confirm !';
 
-		                    $(this).dialog("close");
-		                    alert("You Clicked Yes..."+ trueFunction);
-		                    eval(trueFunction)();
+		try {
+			$("<div></div>").html(dalertConf_msg).dialog({
+				title : title_msg,
+				resizable : false,
+				modal : true,
+				buttons : {
+					"Ok" : function() {
+						if (!trueFunction) {
+							$(this).dialog("close");
+						} else {
+							eval(trueFunction)();
+							$(this).dialog("close");
 
-		                },
-		                Cancel: function() {
-		                    $( this ).dialog( "close" );
-		                    eval(falseFunction)();
-		                  }
-		            }
-		        });
-		        //jQuery UI-CSS Framework ByPass
-		        $(".ui-widget-content").css("color", FontColor);
-		        $(".ui-widget-content").css("background", bodyColor);
-		        
-		    }
-		    catch (error) {
+						}
 
-		        alert(dalertConf_msg);
-		    }
+					},
+					Cancel : function() {
+						if (!falseFunction) {
+							$(this).dialog("close");
+						} else {
+							eval(falseFunction)();
+							$(this).dialog("close");
 
+						}
 
+					}
+				}
+			});
+			// jQuery UI-CSS Framework ByPass
+			$(".ui-widget-content").css("color", FontColor);
+			$(".ui-widget-content").css("background", bodyColor);
+
+		} catch (error) {
+
+			alert(dalertConf_msg);
+		}
 
 	},
-	
-	
-//Replace Dalert With Window Javscript original objects : alert, confirm	
-	ReplaceAlert: function(){
-		
-		window.alert=dx.dalert;
-		
+
+	//Replace Dalert With Window Javscript Original objects : alert, confirm etc.	
+	ReplaceAlert : function() {
+
+		window.alert = dx.dalert;
+
 	},
-	
-	
-	ReplaceConfirm: function(){
-		
-		window.confirm=dx.dconfirm;
-		
+
+	ReplaceConfirm : function() {
+
+		window.confirm = dx.dconfirm;
+
 	}
-	
 
-	
-	
 };
-
-
-//alert impl
-
-//window.alert = function(msg){
-//    dx.dalert("Hello");
-//}
