@@ -33,16 +33,16 @@ THE SOFTWARE.
 
 var dalert = {
 
-		
+	//jQuery UI Override for button padding
 	byPassjQueryUI : function() {
-		
-		$(".ui-button-text-only .ui-button-text").css("padding-left","20px");
-		$(".ui-button-text-only .ui-button-text").css("padding-right","20px");
+
+		$(".ui-button-text-only .ui-button-text").css("padding-left", "20px");
+		$(".ui-button-text-only .ui-button-text").css("padding-right", "20px");
 		$(".ui-button-text-only .ui-button-text").css("padding-top", "0px");
-		$(".ui-button-text-only .ui-button-text").css("padding-bottom","0px");
-		
+		$(".ui-button-text-only .ui-button-text").css("padding-bottom", "0px");
+
 	},
-	
+
 	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
 		if (!title_msg)
 			title_msg = 'DAlert';
@@ -71,6 +71,8 @@ var dalert = {
 			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
+			
+			//Call buttonPadding ByPass
 			dalert.byPassjQueryUI();
 
 		} catch (error) {
@@ -127,6 +129,9 @@ var dalert = {
 			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
+			
+			//Call buttonPadding ByPass
+			dalert.byPassjQueryUI();
 
 		} catch (error) {
 
