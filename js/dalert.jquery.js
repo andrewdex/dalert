@@ -40,6 +40,7 @@ var dalert = {
 		$(".ui-button-text-only .ui-button-text").css("padding-right", "20px");
 		$(".ui-button-text-only .ui-button-text").css("padding-top", "0px");
 		$(".ui-button-text-only .ui-button-text").css("padding-bottom", "0px");
+		$(".ui-button-text-only .ui-button-text").css("font-size", "13px");
 
 	},
 
