@@ -1,17 +1,17 @@
 /*
-DAlert Simple JqueryPlugin
+DAlert jQueryPlugin
 Version: 1.0 (Beta)
 Author: Andrew dEX (Dilusha)
 Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
-Info & API : http://www.dalert.andrewdex.com
+Info & API : http://dalert.andrewdex.com
 Contribute : http://www.github.com/andrewdex/dalert
 
  * dalert("Making the Alert Box much simpler, yet fancy");
  */
 
-var dx = {
+var dalert = {
 
-	dalert : function(dalert_msg, title_msg, FontColor, bodyColor) {
+	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
 		if (!title_msg)
 			title_msg = 'DAlert';
 
@@ -47,8 +47,8 @@ var dx = {
 
 	},
 
-	//Dalert Confirm Dialog
-	dconfirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
+	//DAlert Confirm Dialog
+	confirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
 			FontColor, bodyColor) {
 
 		if (!title_msg)
@@ -102,16 +102,16 @@ var dx = {
 
 	},
 
-	//Replace Dalert With Window Javscript Original objects : alert, confirm etc.	
+	//Replace DAlert With Window JavaScript Original objects : alert, confirm etc.	
 	ReplaceAlert : function() {
 
-		window.alert = dx.dalert;
+		window.alert = dalert.alert;
 
 	},
 
 	ReplaceConfirm : function() {
 
-		window.confirm = dx.dconfirm;
+		window.confirm = dalert.confirm;
 
 	}
 
