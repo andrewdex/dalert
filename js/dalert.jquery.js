@@ -9,7 +9,7 @@ Contribute : http://www.github.com/andrewdex/dalert
  * dalert("Making the Alert Box much simpler, yet fancy");
  */
 
-var dConfirm_var;
+
 
 var dx =  { 
 
@@ -55,9 +55,8 @@ var dx =  {
 
 	
 	//Dalert Confirm Dialog
-	dconfirm : function(dalertConf_msg,trueFunction, title_msg, FontColor,bodyColor) {
-		//trueFunction=dConfirm_var;
-		dConfirm_var=trueFunction;
+	dconfirm : function(dalertConf_msg,trueFunction,falseFunction, title_msg, FontColor,bodyColor) {
+
 		 if (!title_msg)
 		        title_msg = 'DAlert';
 
@@ -77,16 +76,15 @@ var dx =  {
 		            modal: true,
 		            buttons: {
 		                "Ok": function () {
-		            
-		                	
-		                 
+
 		                    $(this).dialog("close");
 		                    alert("You Clicked Yes..."+ trueFunction);
-		                    eval(dConfirm_var)();
+		                    eval(trueFunction)();
 
 		                },
 		                Cancel: function() {
 		                    $( this ).dialog( "close" );
+		                    eval(falseFunction)();
 		                  }
 		            }
 		        });
@@ -105,7 +103,7 @@ var dx =  {
 	},
 	
 	
-	
+//Replace Dalert With Window Javscript original objects : alert, confirm	
 	ReplaceAlert: function(){
 		
 		window.alert=dx.dalert;
