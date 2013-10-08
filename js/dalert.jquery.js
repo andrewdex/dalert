@@ -115,7 +115,7 @@ var dx =  {
 	
 	ReplaceConfirm: function(){
 		
-		window.alert=dx.dconfirm;
+		window.confirm=dx.dconfirm;
 		
 	}
 	
