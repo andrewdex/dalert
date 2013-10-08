@@ -11,7 +11,7 @@
 <body>
 
 <input id="test" type="button" value="Click" />
-
+<input id="test1" type="button" value="Click2" />
 
 
 <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
@@ -19,14 +19,36 @@
 <script type="text/javascript" src="js/dalert.jquery.js"></script>
 
 <script type="text/javascript">
+var get;
+
+function hey(){
+	
+	alert("True Function Runs...");
+}
 
 $("#test").click(function(){
-	dx.dalert(); //Protected Function Call Under a namespace 'd' - Reccomended 
+//	dx.dalert(); //Protected Function Call Under a namespace 'd' - Reccomended 
 	//alert();
-	dx.ReplaceAlert();
-	alert();
-
+//	dx.ReplaceAlert();
+//	alert();
+//	var fname=prompt("Please enter your name:");
+//	var dex = dx.dprompt();
+	//alert(dex);
+	
+	dx.dconfirm("Hello, Are you sure?","hey();");
+	
 });
+
+
+
+$("#test1").click(function(){
+	
+	//alert(get);
+	
+	
+	
+});
+
 </script>
 </body>
 

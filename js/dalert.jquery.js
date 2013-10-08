@@ -12,18 +12,21 @@ Contribute : http://www.github.com/andrewdex/dalert
 
 var dx =  { 
 
-	dalert : function (output_msg, title_msg, color) {
+	dalert : function (dalert_msg, title_msg, FontColor,bodyColor) {
 	    if (!title_msg)
 	        title_msg = 'DAlert';
 
-	    if (!color)
-	        color = 'black';
+	    if (!FontColor)
+	    	FontColor = 'black';
+	    
+	    if(!bodyColor)
+	    	bodyColor='rgb(10, 60, 65)';
 
-	    if (!output_msg)
-	        output_msg = 'No Message to Display.';
+	    if (!dalert_msg)
+	    	dalert_msg = 'This is a Dalert !';
 
 	    try {
-	        $("<div></div>").html(output_msg).dialog({
+	        $("<div></div>").html(dalert_msg).dialog({
 	            title: title_msg,
 	            resizable: false,
 	            modal: true,
@@ -34,25 +37,77 @@ var dx =  {
 	                }
 	            }
 	        });
-
-	        $(".ui-widget-content").css("color", color);
+	        //jQuery UI-CSS Framework ByPass
+	        $(".ui-widget-content").css("color", FontColor);
+	        $(".ui-widget-content").css("background", bodyColor);
+	        
 	    }
 	    catch (error) {
 
-	        alert(output_msg);
+	        alert(dalert_msg);
 	    }
 
 
 
 	},
 	//Dalert Confirm Dialog
-	dconfirm : function() {
+	dconfirm : function(dalertConf_msg,trueFunction, title_msg, FontColor,bodyColor) {
+		trueFunction="hey();";
+		 if (!title_msg)
+		        title_msg = 'DAlert';
+
+		    if (!FontColor)
+		    	FontColor = 'black';
+		    
+		    if(!bodyColor)
+		    	bodyColor='rgb(10, 60, 65)';
+
+		    if (!dalertConf_msg)
+		    	dalertConf_msg = 'This is a Dalert Confirm !';
+
+		    try {
+		        $("<div></div>").html(dalertConf_msg).dialog({
+		            title: title_msg,
+		            resizable: false,
+		            modal: true,
+		            buttons: {
+		                "Ok": function () {
+		                	// window.trueFunction;
+		                    $(this).dialog("close");
+		                    alert("You Clicked Yes..."+ trueFunction);
+		                   
+		                },
+		                Cancel: function() {
+		                    $( this ).dialog( "close" );
+		                  }
+		            }
+		        });
+		        //jQuery UI-CSS Framework ByPass
+		        $(".ui-widget-content").css("color", FontColor);
+		        $(".ui-widget-content").css("background", bodyColor);
+		        
+		    }
+		    catch (error) {
+
+		        alert(dalertConf_msg);
+		    }
+
+
 
 	},
+	
+	
 	
 	ReplaceAlert: function(){
 		
 		window.alert=dx.dalert;
+		
+	},
+	
+	
+	ReplaceConfirm: function(){
+		
+		window.alert=dx.dconfirm;
 		
 	}
 	
