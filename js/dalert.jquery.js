@@ -72,10 +72,11 @@ var dalert = {
 			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
-			
+
 			//Call buttonPadding ByPass
 			dalert.byPassjQueryUI();
-
+			//Catching Errors, In Case if something goes wrong with jQuery UI, 
+			//Replicate the native alert function.  
 		} catch (error) {
 
 			alert(dalert_msg);
@@ -130,13 +131,20 @@ var dalert = {
 			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
-			
+
 			//Call buttonPadding ByPass
 			dalert.byPassjQueryUI();
 
+			//Catching Errors, In Case if something goes wrong with jQuery UI, 
+			//Replicate the native confirm function and handling the parameterized true false functions.  	
 		} catch (error) {
 
-			alert(dalertConf_msg);
+			var conf_val = confirm(dalertConf_msg);
+			if (conf_val == true) {
+				eval(trueFunction)();
+			} else {
+				eval(falseFunction)();
+			}
 		}
 
 	},

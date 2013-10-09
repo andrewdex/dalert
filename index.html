@@ -39,6 +39,9 @@ $("#test").click(function(){
 
 	//Call DAlert
 	dalert.alert("This is a simple DAlert Message !");
+	//Replicate Dalert to Alert
+	dalert.ReplaceAlert();
+	alert("Replicated Alert From Dalert");
 	
 });
 
@@ -47,7 +50,7 @@ $("#test").click(function(){
 $("#test1").click(function(){
 	
 	//Call Dalert Confirm
-	dalert.confirm("Are you sure about are you sure?");
+	dalert.confirm("Are you sure about are you sure?","yes","no");
 	
 	
 	
