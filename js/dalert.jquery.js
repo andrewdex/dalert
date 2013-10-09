@@ -31,8 +31,12 @@ THE SOFTWARE.
  *
  */
 
+
+
 var dalert = {
 
+		
+		
 	//jQuery UI Override for button padding
 	byPassjQueryUI : function() {
 
@@ -45,6 +49,7 @@ var dalert = {
 	},
 
 	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
+		"use strict";
 		if (!title_msg)
 			title_msg = 'DAlert';
 
@@ -78,7 +83,7 @@ var dalert = {
 			//Catching Errors, In Case if something goes wrong with jQuery UI, 
 			//Replicate the native alert function.  
 		} catch (error) {
-
+			console.log(error);
 			alert(dalert_msg);
 		}
 
@@ -87,7 +92,8 @@ var dalert = {
 	// DAlert Confirm Dialog
 	confirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
 			FontColor, bodyColor) {
-
+		"use strict";
+		
 		if (!title_msg)
 			title_msg = 'DAlert';
 
@@ -138,7 +144,7 @@ var dalert = {
 			//Catching Errors, In Case if something goes wrong with jQuery UI, 
 			//Replicate the native confirm function and handling the parameterized true false functions.  	
 		} catch (error) {
-
+			console.log(error);
 			var conf_val = confirm(dalertConf_msg);
 			if (conf_val == true) {
 				eval(trueFunction)();
