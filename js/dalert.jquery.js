@@ -33,23 +33,17 @@ THE SOFTWARE.
  */
 
 
+'use strict';
+
+
+//Dalert Namespace for the dalert lib
 
 var dalert = {
 
-		
-		
-	//jQuery UI Override for button padding
-	byPassjQueryUI : function() {
 
-		$(".ui-button-text-only .ui-button-text").css("padding-left", "20px");
-		$(".ui-button-text-only .ui-button-text").css("padding-right", "20px");
-		$(".ui-button-text-only .ui-button-text").css("padding-top", "5px");
-		$(".ui-button-text-only .ui-button-text").css("padding-bottom", "5px");
-		$(".ui-button-text-only .ui-button-text").css("font-size", "13px");
 		
-
-	},
-
+	//Alert Dialog box Implementation
+		
 	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
 		"use strict";
 		if (!title_msg)
@@ -163,6 +157,18 @@ var dalert = {
 				eval(falseFunction)();
 			}
 		}
+
+	},
+	
+	//jQuery UI Override for button padding
+	byPassjQueryUI : function() {
+
+		$(".ui-button-text-only .ui-button-text").css("padding-left", "20px");
+		$(".ui-button-text-only .ui-button-text").css("padding-right", "20px");
+		$(".ui-button-text-only .ui-button-text").css("padding-top", "5px");
+		$(".ui-button-text-only .ui-button-text").css("padding-bottom", "5px");
+		$(".ui-button-text-only .ui-button-text").css("font-size", "13px");
+		
 
 	},
 
