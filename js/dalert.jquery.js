@@ -107,7 +107,7 @@ var dalert = {
 			FontColor = 'black';
 
 		if (!bodyColor)
-			bodyColor = 'rgb(10, 60, 65)';
+			bodyColor = 'rgb(255, 255, 255)';
 
 		if (!dalertConf_msg)
 			dalertConf_msg = 'This is a Dalert Confirm !';
@@ -140,9 +140,14 @@ var dalert = {
 					}
 				}
 			});
+			
 			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
+			$(".ui-dialog").css("border-width","1px" );
+			$(".ui-dialog").css("border-style","solid");
+			$(".ui-dialog").css("border-color","#76A0F8");
+			$(".ui-widget-header").css("background","#76A0F8");
 
 			//Call buttonPadding ByPass
 			dalert.byPassjQueryUI();
