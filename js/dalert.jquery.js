@@ -79,6 +79,9 @@ var dalert = {
 			// jQuery UI-CSS Framework ByPass
 			$(".ui-widget-content").css("color", FontColor);
 			$(".ui-widget-content").css("background", bodyColor);
+			$(".ui-dialog").css("border-width","1px" );
+			$(".ui-dialog").css("border-style","solid");
+			$(".ui-dialog").css("border-color","#76A0F8");
 			$(".ui-widget-header").css("background","#76A0F8");
 
 			//Call buttonPadding ByPass
