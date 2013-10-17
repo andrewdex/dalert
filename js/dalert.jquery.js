@@ -76,7 +76,7 @@ var dalert = {
 			$(".ui-dialog").css("border-width","1px" );
 			$(".ui-dialog").css("border-style","solid");
 			$(".ui-dialog").css("border-color","#76A0F8");
-			$(".ui-widget-header").css("background","#76A0F8");
+			$(".ui-widget-header").css("background","#26598f");
 
 			//Call buttonPadding ByPass
 			dalert.byPassjQueryUI();
@@ -141,7 +141,7 @@ var dalert = {
 			$(".ui-dialog").css("border-width","1px" );
 			$(".ui-dialog").css("border-style","solid");
 			$(".ui-dialog").css("border-color","#76A0F8");
-			$(".ui-widget-header").css("background","#76A0F8");
+			$(".ui-widget-header").css("background","#26598f");
 
 			//Call buttonPadding ByPass
 			dalert.byPassjQueryUI();
