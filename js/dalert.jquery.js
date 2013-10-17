@@ -45,7 +45,7 @@ var dalert = {
 	//Alert Dialog box Implementation
 		
 	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
-		"use strict";
+	
 		if (!title_msg)
 			title_msg = 'DAlert';
 
@@ -92,7 +92,7 @@ var dalert = {
 	// DAlert Confirm Dialog
 	confirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
 			FontColor, bodyColor) {
-		"use strict";
+		
 		
 		if (!title_msg)
 			title_msg = 'DAlert';
