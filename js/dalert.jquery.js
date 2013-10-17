@@ -66,6 +66,8 @@ var dalert = {
 				buttons : {
 					"Ok" : function() {
 						$(this).dialog("close");
+						$(this).remove();
+						
 
 					}
 				}
@@ -115,9 +117,11 @@ var dalert = {
 					"Ok" : function() {
 						if (!trueFunction) {
 							$(this).dialog("close");
+							$(this).remove();
 						} else {
 							eval(trueFunction)();
 							$(this).dialog("close");
+							$(this).remove();
 
 						}
 
@@ -125,9 +129,11 @@ var dalert = {
 					Cancel : function() {
 						if (!falseFunction) {
 							$(this).dialog("close");
+							$(this).remove();
 						} else {
 							eval(falseFunction)();
 							$(this).dialog("close");
+							$(this).remove();
 
 						}
 
