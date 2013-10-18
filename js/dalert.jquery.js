@@ -177,6 +177,7 @@ var dalert = {
 		
 
 	},
+	
 
 	// Replace DAlert With Window JavaScript Original objects : alert, confirm.
 	ReplaceAlert : function() {
