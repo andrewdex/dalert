@@ -31,165 +31,169 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  *
  */
+//Making the anonymous function
+(function (window, $) {
+
+    //for straight coding like a boss
+    "use strict";
+
+    //Dalert Namespace for the dalert lib
+
+    var dalert = {
 
 
-'use strict';
+
+        //Alert Dialog box Implementation
+
+        alert: function (dalert_msg, title_msg, FontColor, bodyColor) {
+
+            if (!title_msg)
+                title_msg = 'DAlert';
+
+            if (!FontColor)
+                FontColor = 'black';
+
+            if (!bodyColor)
+                bodyColor = 'rgb(255, 255, 255)';
+
+            if (!dalert_msg)
+                dalert_msg = 'This is a Dalert !';
+
+            try {
+                $("<div></div>").html(dalert_msg).dialog({
+                    title: title_msg,
+                    resizable: false,
+                    modal: true,
+                    buttons: {
+                        "Ok": function () {
+                            $(this).dialog("close");
+                            $(this).remove();
 
 
-//Dalert Namespace for the dalert lib
+                        }
+                    }
+                });
+                // jQuery UI-CSS Framework ByPass
+                $(".ui-widget-content").css("color", FontColor);
+                $(".ui-widget-content").css("background", bodyColor);
+                $(".ui-dialog").css("border-width", "1px");
+                $(".ui-dialog").css("border-style", "solid");
+                $(".ui-dialog").css("border-color", "#76A0F8");
+                $(".ui-widget-header").css("background", "#26598f");
 
-var dalert = {
+                //Call buttonPadding ByPass
+                dalert.byPassjQueryUI();
+                //Catching Errors, In Case if something goes wrong with jQuery UI, 
+                //Replicate the native alert function.  
+            } catch (error) {
+                console.log(error);
+                alert(dalert_msg);
+            }
+
+        },
+
+        // DAlert Confirm Dialog
+        confirm: function (dalertConf_msg, trueFunction, falseFunction, title_msg,
+            FontColor, bodyColor) {
 
 
-		
-	//Alert Dialog box Implementation
-		
-	alert : function(dalert_msg, title_msg, FontColor, bodyColor) {
-	
-		if (!title_msg)
-			title_msg = 'DAlert';
+            if (!title_msg)
+                title_msg = 'DAlert';
 
-		if (!FontColor)
-			FontColor = 'black';
+            if (!FontColor)
+                FontColor = 'black';
 
-		if (!bodyColor)
-			bodyColor = 'rgb(255, 255, 255)';
+            if (!bodyColor)
+                bodyColor = 'rgb(255, 255, 255)';
 
-		if (!dalert_msg)
-			dalert_msg = 'This is a Dalert !';
+            if (!dalertConf_msg)
+                dalertConf_msg = 'This is a Dalert Confirm !';
 
-		try {
-			$("<div></div>").html(dalert_msg).dialog({
-				title : title_msg,
-				resizable : false,
-				modal : true,
-				buttons : {
-					"Ok" : function() {
-						$(this).dialog("close");
-						$(this).remove();
-						
+            try {
+                $("<div></div>").html(dalertConf_msg).dialog({
+                    title: title_msg,
+                    resizable: false,
+                    modal: true,
+                    buttons: {
+                        "Ok": function () {
+                            if (!trueFunction) {
+                                $(this).dialog("close");
+                                $(this).remove();
+                            } else {
+                                eval(trueFunction)();
+                                $(this).dialog("close");
+                                $(this).remove();
 
-					}
-				}
-			});
-			// jQuery UI-CSS Framework ByPass
-			$(".ui-widget-content").css("color", FontColor);
-			$(".ui-widget-content").css("background", bodyColor);
-			$(".ui-dialog").css("border-width","1px" );
-			$(".ui-dialog").css("border-style","solid");
-			$(".ui-dialog").css("border-color","#76A0F8");
-			$(".ui-widget-header").css("background","#26598f");
+                            }
 
-			//Call buttonPadding ByPass
-			dalert.byPassjQueryUI();
-			//Catching Errors, In Case if something goes wrong with jQuery UI, 
-			//Replicate the native alert function.  
-		} catch (error) {
-			console.log(error);
-			alert(dalert_msg);
-		}
+                        },
+                        Cancel: function () {
+                            if (!falseFunction) {
+                                $(this).dialog("close");
+                                $(this).remove();
+                            } else {
+                                eval(falseFunction)();
+                                $(this).dialog("close");
+                                $(this).remove();
 
-	},
+                            }
 
-	// DAlert Confirm Dialog
-	confirm : function(dalertConf_msg, trueFunction, falseFunction, title_msg,
-			FontColor, bodyColor) {
-		
-		
-		if (!title_msg)
-			title_msg = 'DAlert';
+                        }
+                    }
+                });
 
-		if (!FontColor)
-			FontColor = 'black';
+                // jQuery UI-CSS Framework ByPass
+                $(".ui-widget-content").css("color", FontColor);
+                $(".ui-widget-content").css("background", bodyColor);
+                $(".ui-dialog").css("border-width", "1px");
+                $(".ui-dialog").css("border-style", "solid");
+                $(".ui-dialog").css("border-color", "#76A0F8");
+                $(".ui-widget-header").css("background", "#26598f");
 
-		if (!bodyColor)
-			bodyColor = 'rgb(255, 255, 255)';
+                //Call buttonPadding ByPass
+                dalert.byPassjQueryUI();
 
-		if (!dalertConf_msg)
-			dalertConf_msg = 'This is a Dalert Confirm !';
+                //Catching Errors, In Case if something goes wrong with jQuery UI, 
+                //Replicate the native confirm function and handling the parameterized true false functions.  	
+            } catch (error) {
+                console.log(error);
+                var conf_val = confirm(dalertConf_msg);
+                if (conf_val == true) {
+                    eval(trueFunction)();
+                } else {
+                    eval(falseFunction)();
+                }
+            }
 
-		try {
-			$("<div></div>").html(dalertConf_msg).dialog({
-				title : title_msg,
-				resizable : false,
-				modal : true,
-				buttons : {
-					"Ok" : function() {
-						if (!trueFunction) {
-							$(this).dialog("close");
-							$(this).remove();
-						} else {
-							eval(trueFunction)();
-							$(this).dialog("close");
-							$(this).remove();
+        },
 
-						}
+        //jQuery UI Override for button padding
+        byPassjQueryUI: function () {
 
-					},
-					Cancel : function() {
-						if (!falseFunction) {
-							$(this).dialog("close");
-							$(this).remove();
-						} else {
-							eval(falseFunction)();
-							$(this).dialog("close");
-							$(this).remove();
+            $(".ui-button-text-only .ui-button-text").css("padding-left", "20px");
+            $(".ui-button-text-only .ui-button-text").css("padding-right", "20px");
+            $(".ui-button-text-only .ui-button-text").css("padding-top", "5px");
+            $(".ui-button-text-only .ui-button-text").css("padding-bottom", "5px");
+            $(".ui-button-text-only .ui-button-text").css("font-size", "13px");
 
-						}
 
-					}
-				}
-			});
-			
-			// jQuery UI-CSS Framework ByPass
-			$(".ui-widget-content").css("color", FontColor);
-			$(".ui-widget-content").css("background", bodyColor);
-			$(".ui-dialog").css("border-width","1px" );
-			$(".ui-dialog").css("border-style","solid");
-			$(".ui-dialog").css("border-color","#76A0F8");
-			$(".ui-widget-header").css("background","#26598f");
+        },
 
-			//Call buttonPadding ByPass
-			dalert.byPassjQueryUI();
 
-			//Catching Errors, In Case if something goes wrong with jQuery UI, 
-			//Replicate the native confirm function and handling the parameterized true false functions.  	
-		} catch (error) {
-			console.log(error);
-			var conf_val = confirm(dalertConf_msg);
-			if (conf_val == true) {
-				eval(trueFunction)();
-			} else {
-				eval(falseFunction)();
-			}
-		}
+        // Replace DAlert With Window JavaScript Original objects : alert, confirm.
+        ReplaceAlert: function () {
 
-	},
-	
-	//jQuery UI Override for button padding
-	byPassjQueryUI : function() {
+            window.alert = dalert.alert;
 
-		$(".ui-button-text-only .ui-button-text").css("padding-left", "20px");
-		$(".ui-button-text-only .ui-button-text").css("padding-right", "20px");
-		$(".ui-button-text-only .ui-button-text").css("padding-top", "5px");
-		$(".ui-button-text-only .ui-button-text").css("padding-bottom", "5px");
-		$(".ui-button-text-only .ui-button-text").css("font-size", "13px");
-		
+        },
 
-	},
-	
+        ReplaceConfirm: function () {
 
-	// Replace DAlert With Window JavaScript Original objects : alert, confirm.
-	ReplaceAlert : function() {
+            window.confirm = dalert.confirm;
 
-		window.alert = dalert.alert;
+        }
 
-	},
+    };
 
-	ReplaceConfirm : function() {
-
-		window.confirm = dalert.confirm;
-
-	}
-
-};
+    window.dalert = dalert;
+})(window, jQuery);
