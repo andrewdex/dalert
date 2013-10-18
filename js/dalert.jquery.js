@@ -31,20 +31,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  *
  */
+
 //Making the anonymous function
 (function (window, $) {
 
-    //for straight coding like a boss
+    //for straight coding like a boss :)
     "use strict";
 
-    //Dalert Namespace for the dalert lib
-
+    //Dalert Namespace for the dalert plugin
     var dalert = {
 
-
-
         //Alert Dialog box Implementation
-
         alert: function (dalert_msg, title_msg, FontColor, bodyColor) {
 
             if (!title_msg)
@@ -73,18 +70,16 @@ THE SOFTWARE.
                         }
                     }
                 });
-                // jQuery UI-CSS Framework ByPass
+                // jQuery UI ByPass
                 $(".ui-widget-content").css("color", FontColor);
                 $(".ui-widget-content").css("background", bodyColor);
-                $(".ui-dialog").css("border-width", "1px");
-                $(".ui-dialog").css("border-style", "solid");
-                $(".ui-dialog").css("border-color", "#76A0F8");
-                $(".ui-widget-header").css("background", "#26598f");
 
-                //Call buttonPadding ByPass
+
+                //Call jQueryUI ByPass
                 dalert.byPassjQueryUI();
-                //Catching Errors, In Case if something goes wrong with jQuery UI, 
-                //Replicate the native alert function.  
+                
+                //Catching Errors, In Case if something goes wrong 
+                //Act normal as nothing happened :) and output the native alert function.  
             } catch (error) {
                 console.log(error);
                 alert(dalert_msg);
@@ -145,10 +140,6 @@ THE SOFTWARE.
                 // jQuery UI-CSS Framework ByPass
                 $(".ui-widget-content").css("color", FontColor);
                 $(".ui-widget-content").css("background", bodyColor);
-                $(".ui-dialog").css("border-width", "1px");
-                $(".ui-dialog").css("border-style", "solid");
-                $(".ui-dialog").css("border-color", "#76A0F8");
-                $(".ui-widget-header").css("background", "#26598f");
 
                 //Call buttonPadding ByPass
                 dalert.byPassjQueryUI();
@@ -167,7 +158,7 @@ THE SOFTWARE.
 
         },
 
-        //jQuery UI Override for button padding
+        //jQuery UI Override for button padding and jQuery Dialog UI
         byPassjQueryUI: function () {
 
             $(".ui-button-text-only .ui-button-text").css("padding-left", "20px");
@@ -175,6 +166,11 @@ THE SOFTWARE.
             $(".ui-button-text-only .ui-button-text").css("padding-top", "5px");
             $(".ui-button-text-only .ui-button-text").css("padding-bottom", "5px");
             $(".ui-button-text-only .ui-button-text").css("font-size", "13px");
+            
+            $(".ui-dialog").css("border-width", "1px");
+            $(".ui-dialog").css("border-style", "solid");
+            $(".ui-dialog").css("border-color", "#76A0F8");
+            $(".ui-widget-header").css("background", "#26598f");
 
 
         },
