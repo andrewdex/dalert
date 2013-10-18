@@ -40,6 +40,8 @@ THE SOFTWARE.
 
     //Dalert Namespace for the dalert plugin
     var dalert = {
+    		
+   
 
         //Alert Dialog box Implementation
         alert: function (dalert_msg, title_msg, FontColor, bodyColor) {
@@ -61,10 +63,14 @@ THE SOFTWARE.
                     title: title_msg,
                     resizable: false,
                     modal: true,
+                    //Make it more secure and neat when closing - Removes the dialog content onClose
+                    beforeClose: function(event, ui) { 
+                         $(this).remove();
+                     },
                     buttons: {
                         "Ok": function () {
                             $(this).dialog("close");
-                            $(this).remove();
+                           
 
 
                         }
@@ -109,15 +115,17 @@ THE SOFTWARE.
                     title: title_msg,
                     resizable: false,
                     modal: true,
+                    //Make it more secure and neat when closing - Removes the dialog content onClose
+                    beforeClose: function(event, ui) { 
+                         $(this).remove();
+                     },
                     buttons: {
                         "Ok": function () {
                             if (!trueFunction) {
                                 $(this).dialog("close");
-                                $(this).remove();
                             } else {
                                 eval(trueFunction)();
                                 $(this).dialog("close");
-                                $(this).remove();
 
                             }
 
@@ -125,11 +133,11 @@ THE SOFTWARE.
                         Cancel: function () {
                             if (!falseFunction) {
                                 $(this).dialog("close");
-                                $(this).remove();
+
                             } else {
                                 eval(falseFunction)();
                                 $(this).dialog("close");
-                                $(this).remove();
+
 
                             }
 
@@ -157,6 +165,8 @@ THE SOFTWARE.
             }
 
         },
+        
+    
 
         //jQuery UI Override for button padding and jQuery Dialog UI
         byPassjQueryUI: function () {
