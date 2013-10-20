@@ -7,7 +7,7 @@ Dependencies : jQuery, jQuery UI, jQuery-UI CSS
 
 
 
-* Homepage: [http://www.dalert.andrewdex.com]
+* Homepage: [http://dalert.andrewdex.com]
 
 ## Getting started - Developers
 
