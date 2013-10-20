@@ -61,7 +61,7 @@
     </div>
   </div>
 
-		<div class="content">
+		<div id="alert_replace" class="content">
 			<div class="dxsection redsec">
 				<p class="topic">Alert Replacement</p>
 				<p class="fancytext fontwhite">
@@ -69,9 +69,9 @@
 				</p>
 				<p class="dxheader1 fontwhite">Then</p>
 				<p class="fancytext fontwhite">
-					Simple Usage: <span class="fontyellow">alert("Hello, I am a
-						DAlert!");</span>
+					Simple Usage: <span class="fontyellow">alert("Hello, I am a Replaced Alert!");</span>
 				</p>
+				<p><input type="button" class="button" value="Alert !" onclick="dalert.ReplaceAlert();alert('Hello, I am a Replaced Alert!');"/></p>
 			</div>
 		</div>
 		</div>
@@ -85,7 +85,7 @@
 						<ul class="nav verti vertiOnly" style="">
 							<li id="dalert_home" class="verti active"><a href="#">DAlert()</a></li>
 							<li id="simple_dalert" class="verti"><a>Simple DAlerts()</a></li>
-							<li class="verti"><a>Replacing Alert()</a></li>
+							<li id="replace_alert" class="verti"><a>Replacing Alert()</a></li>
 							<li class="verti"><a>Replacing Confirm()</a></li>
 						
 						</ul>
