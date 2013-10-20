@@ -43,9 +43,16 @@
     <div class="dxsection greensec">
       <p class="topic">DAlert Simple Usage</p>
     <div class="centergrid">
-            <p class="fancytext fontwhite">Simple Usage: <span class="fontyellow">dalert.alert("Hello, I am a DAlert!");</span> </p>
-    		<p><input type="button" class="button btnblue" value="DAlert ME!" onclick="dalert.alert('Hello, I am a DAlert!');"/></p>
+            <p class="fancytext fontwhite">Usage: <span class="fontyellow">dalert.alert("Hello, I am a DAlert!");</span> </p>
+    		<p><input type="button" class="button" value="DAlert ME!" onclick="dalert.alert('Hello, I am a DAlert!');"/></p>
     </div>
+    
+      <p class="topic">DAlert-Confirm Simple Usage</p>
+    <div class="centergrid">
+            <p class="fancytext fontwhite">Usage: <span class="fontyellow">dalert.confirm("Do you want to confirm this DAlert?","alert('yes')","alert('no')");</span> </p>
+    		<p><input type="button" class="button" value="DAlert-Confirm ME!" onclick="dalert.confirm('Hello, I am a DAlert!','yes','no');"/></p>
+    </div>
+    
     </div>
   </div>
 
@@ -71,7 +78,7 @@
 				<div class="">
 					<div class="">
 						<ul class="nav verti vertiOnly" style="">
-							<li  class="verti active"><a href="#">DAlert()</a></li>
+							<li id="dalert_home" class="verti active"><a href="#">DAlert()</a></li>
 							<li id="simple_dalert" class="verti"><a>Simple DAlerts()</a></li>
 							<li class="verti"><a>Replacing Alert()</a></li>
 							<li class="verti"><a>Replacing Confirm()</a></li>
