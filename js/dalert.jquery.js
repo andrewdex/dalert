@@ -120,7 +120,7 @@ THE SOFTWARE.
                          $(this).remove();
                      },
                     buttons: {
-                        "Ok": function () {
+                        "Yes": function () {
                             if (!trueFunction) {
                                 $(this).dialog("close");
                             } else {
@@ -130,7 +130,7 @@ THE SOFTWARE.
                             }
 
                         },
-                        Cancel: function () {
+                        "No": function () {
                             if (!falseFunction) {
                                 $(this).dialog("close");
 
