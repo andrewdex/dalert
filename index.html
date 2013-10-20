@@ -49,10 +49,11 @@
     
       <p class="topic">DAlert-Confirm Simple Usage</p>
     <div class="centergrid">
-            <p class="fancytext fontwhite">Usage: <span class="fontyellow">dalert.confirm("Do you want to confirm this DAlert?","alert('yes')","alert('no')");</span> </p>
+            <p class="fancytext fontwhite">Usage: <span class="fontyellow">dalert.confirm("Do you want to confirm this DAlert?","yes","no");</span> </p>
     		<p><input type="button" class="button" value="DAlert-Confirm ME!" onclick="dalert.confirm('Hello, I am a DAlert!','yes','no');"/></p>
+    		<p></p>
     </div>
-    
+    <!-- Conflict Fixed -->
     </div>
   </div>
 
@@ -94,7 +95,7 @@
 			</div>
 
 
-<!-- conflict -->
+
 
 
 
@@ -117,12 +118,13 @@ var get;
 
 function yes(){
 	
-	alert("True Function Runs...");
+	dalert.alert("You Clicked Yes!");
+
 }
 
 function no(){
 	
-	alert("False initiated");
+	dalert.alert("You Clicked No!");
 }
 
 $("#test").click(function(){
