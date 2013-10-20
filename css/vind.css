@@ -359,14 +359,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endC
 .verti li{
 	
 	width:100%;
-	background: rgb(255, 253, 253);
+	background: rgb(68, 60, 60);
 	border: 1px;
 	border-style: solid;
 	border-color: rgb(73, 138, 255);
 	cursor: pointer;
 	float: none;
-	background: rgb(255,255,255);
 	
+	
+	border-radius: 8px;
 }
 
 .verti>.active {
@@ -376,8 +377,13 @@ background-color:#26609E ;
 
 .verti>li>a:hover, .verti>li>a:focus {
 	text-decoration: none;
-	color: #ffffff;
-	background-color: white;;
+	color: #000000;
+	background-color: rgb(36, 135, 212);;
+	font-weight: bold;
+	/* border-width: 1px; */
+	/* border-style: solid; */
+	/* border-color: rgb(0, 82, 255); */
+	border-radius: 8px;
 }
 
 .vertiOnly {
@@ -386,6 +392,7 @@ background-color:#26609E ;
 	margin-left: -39px;
 	width: 98%;
 	
+	border-radius: 12px;
 }
 
 .bggray {
@@ -497,12 +504,8 @@ background: #268F61;
 .center {
 	text-align: center;
 }
-/*
-SideBar
-*/
 
-.SideBar {
-}
+
 /*
 Table Styles
 
@@ -574,6 +577,7 @@ Background Color Sets
 	background: linear-gradient(to bottom, rgba(169,228,247,1) 0%, rgba(15,180,231,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7', GradientType=0 ); /* IE6-8 */
 }
+
 /*
 Login Panels
 
@@ -702,6 +706,7 @@ CSS Layouts
 	height:100%;
 	display:inline-block;
 	margin-top: 10px;
+	border-radius: 12px;
 }
 .laymiddle{
 	height:100%;
@@ -724,40 +729,4 @@ width:60%;
 	display:inline-block;
     
 }
-* listdEX * /
-#listdEX {
-	width: 20%;
-	font-family: Georgia, Times, serif;
-	font-size: 15px;
-}
 
-#listdEX ul {
-	list-style: none;
-}
-
-#listdEX ul li {
-	background:aqua;
-}
-
-#listdEX ul li a {
-	display: block;
-	text-decoration: none;
-	color: #000000;
-	background-color: #FFFFFF;
-	line-height: 30px;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-color: #CCCCCC;
-	padding-left: 10px;
-	cursor: pointer;
-}
-
-#listdEX ul li a:hover {
-	color: #FFFFFF;
-	background-image: url(../images/hover.png);
-	background-repeat: repeat-x;
-}
-
-#listdEX ul li a strong {
-	margin-right: 10px;
-}
