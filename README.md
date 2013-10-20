@@ -5,3 +5,11 @@ DAlert jQuery Plugin - A Dialog box plugin has the simple behaviour as the origi
 
 Dependencies : jQuery, jQuery UI, jQuery-UI CSS
 
+
+
+* Homepage: [http://www.dalert.andrewdex.com]
+
+## Getting started - Developers
+
+Download the [latest release](https://github.com/andrewdex/dalert/master) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
+
