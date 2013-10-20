@@ -38,7 +38,7 @@ THE SOFTWARE.
     //for straight coding like a boss :)
     "use strict";
 
-    //Dalert Namespace for the dalert plugin
+    //Dalert Namespace for the dalert plugin library
     var dalert = {
     		
    
