@@ -314,6 +314,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endC
 	left:0px;
 }
 
+.fixedleft{
+	position:fixed;
+	left:0;
+}
+
 .nav {
 	display: block;
 	position: relative;
@@ -351,7 +356,37 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endC
 
 /*Side Nav*/
 
+.verti li{
+	
+	width:100%;
+	background: rgb(255, 253, 253);
+	border: 1px;
+	border-style: solid;
+	border-color: rgb(73, 138, 255);
+	cursor: pointer;
+	float: none;
+	background: rgb(255,255,255);
+	
+}
 
+.verti>.active {
+color: #ffffff;
+background-color:#26609E ;
+}
+
+.verti>li>a:hover, .verti>li>a:focus {
+	text-decoration: none;
+	color: #ffffff;
+	background-color: white;;
+}
+
+.vertiOnly {
+	margin: 0;
+	width: 204px;
+	margin-left: -39px;
+	width: 98%;
+	
+}
 
 .bggray {
 	background: #CCC;
@@ -666,6 +701,7 @@ CSS Layouts
 	width:20%;
 	height:100%;
 	display:inline-block;
+	margin-top: 10px;
 }
 .laymiddle{
 	height:100%;
