@@ -128,6 +128,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242424', endC
 	background: -moz-linear-gradient(center top, #000000 5%, #242424 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#242424' );
 	background-color: #000000;
+	cursor: pointer;
 }
 .button:active {
 	position: relative;
