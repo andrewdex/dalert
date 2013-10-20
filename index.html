@@ -88,6 +88,21 @@
 			</div>
 		</div>
 		
+		<div id="dalert_paramters" class="content">
+			<div class="dxsection">
+				<p class="topic">Parameter Values And Usage</p>
+				<p class="fancytext fontwhite">
+					DAlert Parameters : <span class="fontyellow">(dalert_msg, title_msg, FontColor, bodyColor)</span>
+				</p>
+				<p class="dxheader1 fontwhite">And</p>
+				<p class="fancytext fontwhite">
+					DAlert Confirm Parameters: <span class="fontyellow">(dalertConf_msg, trueFunction, falseFunction, title_msg,
+            FontColor, bodyColor)</span>
+				</p>
+				<p><input type="button" class="button" value="Confirm !" onclick="dalert.ReplaceConfirm();confirm('Wanna replace native confirm?','yes','no');"/></p>
+			</div>
+		</div>
+		
 		</div>
 
 		<div  style="width: 100%">
@@ -101,6 +116,7 @@
 							<li id="simple_dalert_link" class="verti"><a>Simple DAlerts()</a></li>
 							<li id="replace_alert_link" class="verti"><a>Replacing Alert()</a></li>
 							<li id="replace_confirm_link" class="verti"><a>Replacing Confirm()</a></li>
+							<li id="parameterized_link" class="verti"><a>Parameters</a></li>
 						
 						</ul>
 
