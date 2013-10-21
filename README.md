@@ -11,5 +11,5 @@ Dependencies : jQuery, jQuery UI
 
 ## Getting started - Developers
 
-Download the [latest release](https://github.com/andrewdex/dalert/master) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
+Download the [latest release](https://github.com/andrewdex/dalert/archive/0.1.0.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
 
