@@ -1,0 +1,29 @@
+{
+    "name": "dalert",
+    "title": "jQuery DAlert",
+    "description": "jQuery plugin for simple dialog messages/alerts.",
+    "keywords": [
+        "dalert",
+        "dialog",
+        "replace",
+        "alert"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Andrew dEX (Dilusha Gonagala)"
+    },
+  
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/andrewdex/dalert/license.txt"
+        }
+    ],
+    "Issue Tracker": "https://github.com/andrewdex/dalert/issues?state=open",
+    "homepage": "http://andrewdex.github.io/dalert",
+    "docs": "http://andrewdex.github.io/dalert",
+    "download": "https://github.com/andrewdex/dalert/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.6"
+    }
+}
