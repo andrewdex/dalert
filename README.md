@@ -8,7 +8,6 @@ Dependencies : jQuery, jQuery UI
 
 * Homepage: [http://dalert.andrewdex.com]
 
-## Getting started - Developers
-
+## Getting started 
 Download the [latest release](https://github.com/andrewdex/dalert/archive/0.1.0.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
 
