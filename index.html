@@ -2,111 +2,177 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DAlert </title>
-<link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/vind.css"/>
-<link rel="stylesheet" href="css/jquery-ui.css"/>
+<title>DAlert</title>
+<link type="text/css"  rel="stylesheet" href="css/vind.css" />
+<link type="text/css"  rel="stylesheet" href="css/jquery-ui.css" />
+
+
+<link type="text/css" rel="stylesheet" href="css/shCoreDefault.css" />
+<link type="text/css" rel="stylesheet" href="css/shCore.css" />
+
 
 </head>
 
-<body>
+<body onload="prettyPrint()">
 
-<div class="main" align="center" style="margin-top:50px">
+	<div class="main" align="center" style="margin-top: 50px">
 
-<div class="navbar navbarfixed">
-    <ul class="nav">
-      <li class="active"><a href="./index.html">Home</a></li>
-      <li><a href="./about.html">About</a></li>
-   <li><a href="./license.html">License</a></li>
+		<div class="navbar navbarfixed">
+			<ul class="nav">
+				<li class="active"><a href="./index.html">Home</a></li>
+				<li><a href="./about.html">About</a></li>
+				<li><a href="./license.html">License</a></li>
 
-    </ul>
-  </div>
-  <div class="layrightOnly">
-  <div id="dalert_main" class="content">
-    <div class="dxsection">
-      <p class="dxheader1">DAlert</p>
-       <span class="fontwhite">Version 1.0</span> 
-      <p class="dxheader fontwhite">DAlert - A LightWeight jQuery Plugin with easy usage like native JavaScript alert().
-      </p>
-
-    </div>
-  </div>
-  <div>
-  
-  <p class="fontbold">DAlert Version 1.0</p>
-  
-  	<a class="button btnwhite btnwide" href="./assests/dalert_v1.0_compiled.zip" > Download [Production Version]</a>
-	<a class="button btnblue btnwide" href="https://github.com/andrewdex/dalert/releases/tag/0.1.2" > Download [Development Version]</a>
-  
-  </div>
-  	
-  <div id="dalert_simple" class="content">
-    <div class="dxsection greensec">
-      <p class="topic">DAlert Simple Usage</p>
-    <div class="centergrid">
-            <p class="fancytext fontwhite">Usage: <span class="fontyellow">dalert.alert("Hello, I am a DAlert!");</span> </p>
-    		<p><input type="button" class="button" value="DAlert ME!" onclick="dalert.alert('Hello, I am a DAlert!');"/></p>
-    </div>
-    
-      <p class="topic">DAlert-Confirm Simple Usage</p>
-    <div class="centergrid">
-            <p class="fancytext fontwhite">Usage: <span class="fontyellow">dalert.confirm("Do you want to confirm this DAlert?","yes","no");</span> </p>
-            <p class="fancytext fontwhite">Change the "yes" And "no" parameters as for the functions you want to run onclick of each yes and no events.</p>
-            <span class="fancytext fontblue">Example:</span>
-            <p><span class="fancytext fontyellow">function yes(){dalert.alert("You Have Clicked yes");}</span></p>
-            <p><span class="fancytext fontyellow">function no(){dalert.alert("You Have Clicked no");}</span></p>
-    		<p><input type="button" class="button" value="DAlert-Confirm ME!" onclick="dalert.confirm('Do you want to confirm this DAlert?','yes','no');"/></p>
-    		<p></p>
-    </div>
-    <!-- Conflict Fixed -->
-    </div>
-  </div>
-
-		<div id="alert_replace" class="content">
-			<div class="dxsection redsec">
-				<p class="topic">Alert Replacement</p>
-				<p class="fancytext fontwhite">
-					Replace native alert with DAlert : <span class="fontyellow">dalert.ReplaceAlert();</span>
-				</p>
-				<p class="dxheader1 fontwhite">Then</p>
-				<p class="fancytext fontwhite">
-					Simple Usage: <span class="fontyellow">alert("Hello, I am a Replaced Alert!");</span>
-				</p>
-				<p><input type="button" class="button" value="Alert !" onclick="dalert.ReplaceAlert();alert('Hello, I am a Replaced Alert!');"/></p>
-			</div>
+			</ul>
 		</div>
+		<div class="layrightOnly">
+			<div id="dalert_main" class="content">
+				<div class="dxsection">
+					<p class="dxheader1">DAlert</p>
+					<span class="fontwhite">Version 1.0</span>
+					<p class="dxheader fontwhite">DAlert is a simple jQuery and
+						jQuery UI plugin that easily create a customizable alert (or
+						confirm) window as a replacement for the native javascript alert
+						and confirm methods.</p>
+
+				</div>
+			</div>
+			<div>
+
+				<p class="fontbold">DAlert Version 1.0</p>
+
+				<a class="button btnwhite btnwide"
+					href="./assests/dalert_v1.0_compiled.zip"> Download
+					[Production Version]</a> <a class="button btnblue btnwide"
+					href="https://github.com/andrewdex/dalert/releases/tag/0.1.2">
+					Download [Development Version]</a>
+
+			</div>
+
+			<div id="dalert_simple" class="content">
+				<div class="dxsection">
+					<p class="topic">DAlert Simple Usage</p>
+					<div class="centergrid">
+				<p class="fancytext fontwhite">1. Make sure to include the latest version of jQuery library and jQuery UI from CDN on your web page.</p>
+<pre class="brush:xml;">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css&quot;/&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery-latest.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://code.jquery.com/ui/1.10.3/jquery-ui.js&quot;&gt;&lt;/script&gt;
+</pre>
+
+					<p class="fancytext fontwhite">2. Include jQuery dalert plugin after jQuery and jQuery UI.</p>
+<pre class="brush:xml;">
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/dalert.jquery.js&quot;&gt;&lt;/script&gt; </pre>
+
+					
+				<p class="fancytext fontwhite">3. Create a simple alert window.</p>
+<pre class="brush:xml;">
+&lt;input type=&quot;button&quot; class=&quot;button&quot; value=&quot;DAlert&quot; onclick=&quot;dalert.alert('Hello, I am a DAlert!');&quot;/&gt;
+</pre>
+
+					
+					<p class="fancytext fontwhite">
+							<input type="button" class="button" value="DAlert ME!"
+								onclick="dalert.alert('Hello, I am a DAlert!');" />
+						</p>
+			<p class="fancytext fontwhite">4. Create a confirm dialog box.</p>
+<pre class="brush:xml;">
+&lt;input type=&quot;button&quot; class=&quot;button&quot; value=&quot;DAlert-Confirm&quot; onclick=&quot;dalert.confirm('Do you want to confirm this DAlert?','yes','no');&quot;/&gt;
+</pre>
+					
+					</div>
+
+					<p class="topic">DAlert-Confirm Simple Usage</p>
+					<div class="centergrid">
+						<p class="fancytext fontwhite">
+							Usage: <span class="fontyellow">dalert.confirm("Do you
+								want to confirm this DAlert?","yes","no");</span>
+						</p>
+						<p class="fancytext fontwhite">Change the "yes" And "no"
+							parameters as for the functions you want to run onclick of each
+							yes and no events.</p>
+						<span class="fancytext fontwhite">Example:</span>
+						<p>
+							<pre class="brush:js" >
+							
+							function yes()
+							{
+							dalert.alert("You Have Clicked yes");
+							}
+							</pre>
+						</p>
+						<p>
+							<pre class="brush:js" >
+							function no()
+							{
+							dalert.alert("You Have Clicked no");
+							}
+							</pre>
+						</p>
+						<p>
+							<input type="button" class="button" value="DAlert-Confirm ME!"
+								onclick="dalert.confirm('Do you want to confirm this DAlert?','yes','no');" />
+						</p>
+						<p></p>
+					</div>
+					<!-- Conflict Fixed -->
+				</div>
+			</div>
+
+			<div id="alert_replace" class="content">
+				<div class="dxsection redsec">
+					<p class="topic">Alert Replacement</p>
+					<p class="fancytext fontwhite">
+						Replace native alert with DAlert : <span class="fontyellow">dalert.ReplaceAlert();</span>
+					</p>
+					<p class="dxheader1 fontwhite">Then</p>
+					<p class="fancytext fontwhite">
+						Simple Usage: <span class="fontyellow">alert("Hello, I am a
+							Replaced Alert!");</span>
+					</p>
+					<p>
+						<input type="button" class="button" value="Alert !"
+							onclick="dalert.ReplaceAlert();alert('Hello, I am a Replaced Alert!');" />
+					</p>
+				</div>
+			</div>
 			<div id="confirm_replace" class="content">
-			<div class="dxsection pinksec">
-				<p class="topic">Confirm Replacement</p>
-				<p class="fancytext fontwhite">
-					Replace native confirm with DAlert : <span class="fontyellow">dalert.ReplaceConfirm();</span>
-				</p>
-				<p class="dxheader1 fontwhite">Then</p>
-				<p class="fancytext fontwhite">
-					Simple Usage: <span class="fontyellow">confirm("Wanna replace native confirm?","yes","no");</span>
-				</p>
-				<p><input type="button" class="button" value="Confirm !" onclick="dalert.ReplaceConfirm();confirm('Wanna replace native confirm?','yes','no');"/></p>
+				<div class="dxsection pinksec">
+					<p class="topic">Confirm Replacement</p>
+					<p class="fancytext fontwhite">
+						Replace native confirm with DAlert : <span class="fontyellow">dalert.ReplaceConfirm();</span>
+					</p>
+					<p class="dxheader1 fontwhite">Then</p>
+					<p class="fancytext fontwhite">
+						Simple Usage: <span class="fontyellow">confirm("Wanna
+							replace native confirm?","yes","no");</span>
+					</p>
+					<p>
+						<input type="button" class="button" value="Confirm !"
+							onclick="dalert.ReplaceConfirm();confirm('Wanna replace native confirm?','yes','no');" />
+					</p>
+				</div>
 			</div>
-		</div>
-		
-		<div id="dalert_paramters" class="content">
-			<div class="dxsection">
-				<p class="topic">Parameter Values And Usage</p>
-				<p class="fancytext fontwhite">
-					DAlert Parameters : <span class="fontyellow">(dalert_msg, title_msg, FontColor, bodyColor)</span>
-				</p>
-				<p class="dxheader1 fontwhite">And</p>
-				<p class="fancytext fontwhite">
-					DAlert Confirm Parameters: <span class="fontyellow">(dalertConf_msg, trueFunction, falseFunction, title_msg,
-            FontColor, bodyColor)</span>
-				</p>
-				
+
+			<div id="dalert_paramters" class="content">
+				<div class="dxsection">
+					<p class="topic">Parameter Values And Usage</p>
+					<p class="fancytext fontwhite">
+						DAlert Parameters : <span class="fontyellow">(dalert_msg,
+							title_msg, FontColor, bodyColor)</span>
+					</p>
+					<p class="dxheader1 fontwhite">And</p>
+					<p class="fancytext fontwhite">
+						DAlert Confirm Parameters: <span class="fontyellow">(dalertConf_msg,
+							trueFunction, falseFunction, title_msg, FontColor, bodyColor)</span>
+					</p>
+
+				</div>
 			</div>
-		</div>
-		
+
 		</div>
 
-		<div  style="width: 100%">
+		<div style="width: 100%">
 
 			<div class="layleft fixedleft">
 
@@ -114,11 +180,14 @@
 					<div class="">
 						<ul class="nav verti vertiOnly" style="">
 							<li id="dalert_home_link" class="verti active"><a href="#">DAlert()</a></li>
-							<li id="simple_dalert_link" class="verti"><a>Simple DAlerts()</a></li>
-							<li id="replace_alert_link" class="verti"><a>Replacing Alert()</a></li>
-							<li id="replace_confirm_link" class="verti"><a>Replacing Confirm()</a></li>
+							<li id="simple_dalert_link" class="verti"><a>Simple
+									DAlerts()</a></li>
+							<li id="replace_alert_link" class="verti"><a>Replacing
+									Alert()</a></li>
+							<li id="replace_confirm_link" class="verti"><a>Replacing
+									Confirm()</a></li>
 							<li id="parameterized_link" class="verti"><a>Parameters</a></li>
-						
+
 						</ul>
 
 
@@ -141,34 +210,45 @@
 
 	</div>
 	<div class="navbar footernav ">
-  <p class="center fancytext fontwhite">Developed by <a class="fancytext" href="http://twitter.com/andrewdex" target="_blank">@andrewdex</a></p>
-  <p class="center fancytext fontwhite">Licensed Under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a></p>
-  </div>
+		<p class="center fancytext fontwhite">
+			Developed by <a class="fancytext" href="http://twitter.com/andrewdex"
+				target="_blank">@andrewdex</a>
+		</p>
+		<p class="center fancytext fontwhite">
+			Licensed Under <a href="http://opensource.org/licenses/MIT"
+				target="_blank">MIT</a>
+		</p>
+	</div>
 
 
-<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/dalert.jquery.js"></script>
-<script type="text/javascript" src="js/sitedx.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/dalert.jquery.js"></script>
+	<script type="text/javascript" src="js/sitedx.js"></script>
+	<script type="text/javascript" src="js/shCore.js"></script>
+	<script type="text/javascript" src="js/shBrushJScript.js"></script>
+	<script type="text/javascript" src="js/shBrushCss.js"></script>
+	<script type="text/javascript" src="js/shBrushXml.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.defaults['toolbar'] = false;
+		SyntaxHighlighter.all();
+	</script>
 
-<script type="text/javascript">
-
-
-//Yes Function
-function yes(){
+	<script type="text/javascript">
 	
-	dalert.alert("You Clicked Yes!");
 
-}
+		//Yes Function
+		function yes() {
 
-function no(){
-	
-	dalert.alert("You Clicked No!");
-}
+			dalert.alert("You Clicked Yes!");
 
+		}
 
+		function no() {
 
-</script>
+			dalert.alert("You Clicked No!");
+		}
+	</script>
 </body>
 
 

@@ -1,15 +1,13 @@
-DAlert
+DAlert 0.1.2
 ======
 
-DAlert jQueryUI Plugin - A Dialog box plugin has the simple behaviour as the original Javascript alert. You can also replace the original alert() as you wish with just calling the dalert.ReplaceAlert();
-
+Dalert is a simple jQuery and jQuery UI plugin that easily create a customizable alert (or confirm) window as a replacement for the native javascript alert and confirm methods.
 Dependencies : jQuery, jQuery UI
 
 
 
 * Homepage: [http://dalert.andrewdex.com]
 
-## Getting started - Developers
-
-Download the [latest release](https://github.com/andrewdex/dalert/archive/0.1.0.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
+## Getting started 
+Download the [latest release](https://github.com/andrewdex/dalert/archive/master.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
 
