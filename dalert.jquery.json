@@ -11,7 +11,8 @@
     "version": "1.0.0",
     
     "author": {
-        "name": "Andrew dEX (Dilusha Gonagala)"
+        "name": "Andrew dEX (Dilusha Gonagala)",
+        "url" :"https://github.com/andrewdex"
     },
   
     "licenses": [
