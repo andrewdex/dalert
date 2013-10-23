@@ -1,7 +1,7 @@
 /*
  * DAlert jQueryPlugin
  * dalert.alert("Making the Alert Box much simpler, yet fancy");
- * Version: 1.0 (Alpha)
+ * Version: 1.0
  * Author: Andrew dEX (Dilusha)
  * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
  * Info & API : http://dalert.andrewdex.com
