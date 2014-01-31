@@ -4,7 +4,7 @@
  * Version: 1.0
  * Author: Andrew dEX (Dilusha)
  * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
- * Info & API : http://dalert.andrewdex.com
+ * Info & API : http://andrewdex.github.io/dalert/
  * Contribute : http://www.github.com/andrewdex/dalert
  * 
  * Copyright 2013 Andrew dEX (Dilusha Gonagala)
