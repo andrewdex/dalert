@@ -44,7 +44,7 @@ THE SOFTWARE.
    
 
         //Alert Dialog box Implementation
-        alert: function (dalert_msg, title_msg, FontColor, bodyColor) {
+        alert: function (dalert_msg, title_msg, FontColor, bodyColor,callback) {
 
             if (!title_msg)
                 title_msg = 'DAlert';
@@ -70,7 +70,9 @@ THE SOFTWARE.
                     buttons: {
                         "Ok": function () {
                             $(this).dialog("close");
-                           
+                           	
+                           	if(typeof(callback) == 'function')
+                           		callback();
 
 
                         }
