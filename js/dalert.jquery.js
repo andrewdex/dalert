@@ -4,7 +4,7 @@
  * Version: 1.0
  * Author: Andrew dEX (Dilusha)
  * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
- * Info & API : http://andrewdex.github.io/dalert/
+ * Info & API : http://dalert.andrewdex.com
  * Contribute : http://www.github.com/andrewdex/dalert
  * 
  * Copyright 2013 Andrew dEX (Dilusha Gonagala)
@@ -33,18 +33,17 @@ THE SOFTWARE.
  */
 
 //Making the anonymous function
-(function (window, $) {
-
-    //for straight coding like a boss :)
+(function (Dalert, $, undefined) {
+    
     "use strict";
-
+    
     //Dalert Namespace for the dalert plugin library
-    var dalert = {
-    		
+     dalert = {
+            
    
 
         //Alert Dialog box Implementation
-        alert: function (dalert_msg, title_msg, FontColor, bodyColor,callback) {
+        alert: function (dalert_msg, title_msg, FontColor, bodyColor) {
 
             if (!title_msg)
                 title_msg = 'DAlert';
@@ -70,9 +69,7 @@ THE SOFTWARE.
                     buttons: {
                         "Ok": function () {
                             $(this).dialog("close");
-                           	
-                           	if(typeof(callback) == 'function')
-                           		callback();
+                           
 
 
                         }
@@ -155,7 +152,7 @@ THE SOFTWARE.
                 dalert.byPassjQueryUI();
 
                 //Catching Errors, In Case if something goes wrong with jQuery UI, 
-                //Replicate the native confirm function and handling the parameterized true false functions.  	
+                //Replicate the native confirm function and handling the parameterized true false functions.    
             } catch (error) {
                 console.log(error);
                 var conf_val = confirm(dalertConf_msg);
@@ -202,6 +199,4 @@ THE SOFTWARE.
         }
 
     };
-
-    window.dalert = dalert;
-})(window, jQuery);
+}(window.dalert = window.dalert || {}, jQuery));
