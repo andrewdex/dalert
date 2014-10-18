@@ -13,7 +13,7 @@
 
 </head>
 
-<body onload="prettyPrint()">
+<body >
 
 	<div class="main" align="center" style="margin-top: 50px">
 
@@ -29,7 +29,7 @@
 			<div id="dalert_main" class="content">
 				<div class="dxsection">
 					<p class="dxheader1">DAlert</p>
-					<span class="fontwhite">Version 1.0</span>
+					<span class="fontwhite">Version 1.1</span>
 					<p class="dxheader fontwhite">DAlert is a simple jQuery and
 						jQuery UI plugin that easily create a customizable alert (or
 						confirm) window as a replacement for the native javascript alert
@@ -39,7 +39,7 @@
 			</div>
 			<div>
 
-				<p class="fontbold">DAlert Version 1.0 </p>
+				<p class="fontbold">DAlert Version 1.1 </p>
 
 				<a class="button btnwhite btnwide"
 					href="./assests/dalert_v1.0_compiled.zip"> Download
@@ -67,51 +67,57 @@
 					
 				<p class="fancytext fontwhite">3. Create a simple alert window.</p>
 <pre class="brush:xml;">
-&lt;input type=&quot;button&quot; class=&quot;button&quot; value=&quot;DAlert&quot; onclick=&quot;dalert.alert('Hello, I am a DAlert!');&quot;/&gt;
+&lt;input type=&quot;button&quot; class=&quot;button&quot; id=&quot;dalert_button&quot; value=&quot;DAlert&quot; /&gt;
 </pre>
+					<div>
+						<pre class="brush:js">
+						//Start :: jQuery Click Event :: or as you wish to handle the click event
+							$("#dalert_button").click(function(){
+								//Start :: DAlert Alert Usage		
+								dalert.alert("Hello, I am a DAlert!");
+								//End :: DAlert Alert Usage
+							});
+						//End :: jQuery Click Event :: or as you wish to handle the click event		
+						</pre>
+						</div>
 
 					
 					<p class="fancytext fontwhite">
-							<input type="button" class="button" value="DAlert ME!"
-								onclick="dalert.alert('Hello, I am a DAlert!');" />
+							<input type="button" id="dalert_button" class="button" value="DAlert ME!"/>
 						</p>
 			<p class="fancytext fontwhite">4. Create a confirm dialog box.</p>
 <pre class="brush:xml;">
-&lt;input type=&quot;button&quot; class=&quot;button&quot; value=&quot;DAlert-Confirm&quot; onclick=&quot;dalert.confirm('Do you want to confirm this DAlert?','yes','no');&quot;/&gt;
+&lt;input type=&quot;button&quot; class=&quot;button&quot; id=&quot;confirm_button&quot; value=&quot;DAlert-Confirm&quot;/&gt;
 </pre>
 					
 					</div>
 
 					<p class="topic">DAlert-Confirm Simple Usage</p>
 					<div class="centergrid">
-						<p class="fancytext fontwhite">
-							Usage: <span class="fontyellow">dalert.confirm("Do you
-								want to confirm this DAlert?","yes","no");</span>
-						</p>
-						<p class="fancytext fontwhite">Change the "yes" And "no"
-							parameters as for the functions you want to run onclick of each
-							yes and no events.</p>
+					
+						<p class="fancytext fontwhite">DAlert Confirm is easy to use as it just returns a callback with the result user clicked, you can implement your logic for the specific button click as in the below example</p>
 						<span class="fancytext fontwhite">Example:</span>
+						<div>
+							<pre class="brush:js">
+						//Start :: jQuery Click Event :: or as you wish to handle the click event
+							$("#confirm_button").click(function(){
+								//Start :: DAlert Confirm Usage		
+								dalert.confirm("Are You Sure?","DAlert Confirm !",function(result){
+									if(result){
+									dalert.alert("You've just clicked YES !");
+									}
+									else{
+									dalert.alert("You've just clicked NO !");
+									}
+								});
+								//End :: DAlert Confirm Usage
+							});
+						//End :: jQuery Click Event :: or as you wish to handle the click event		
+						</pre>
+						</div>
+						
 						<p>
-							<pre class="brush:js" >
-							
-							function yes()
-							{
-							dalert.alert("You Have Clicked yes");
-							}
-							</pre>
-						</p>
-						<p>
-							<pre class="brush:js" >
-							function no()
-							{
-							dalert.alert("You Have Clicked no");
-							}
-							</pre>
-						</p>
-						<p>
-							<input type="button" class="button" value="DAlert-Confirm ME!"
-								onclick="dalert.confirm('Do you want to confirm this DAlert?','yes','no');" />
+							<input id="confirm_button" type="button" class="button" value="DAlert-Confirm ME!"/>
 						</p>
 						<p></p>
 					</div>
@@ -125,14 +131,16 @@
 					<p class="fancytext fontwhite">
 						Replace native alert with DAlert : <span class="fontyellow">dalert.ReplaceAlert();</span>
 					</p>
-					<p class="dxheader1 fontwhite">Then</p>
+					<p class="dxheader1 fontwhite">Example</p>
 					<p class="fancytext fontwhite">
-						Simple Usage: <span class="fontyellow">alert("Hello, I am a
-							Replaced Alert!");</span>
+					<pre class="brush:js">
+
+						dalert.ReplaceAlert();
+						alert("Hey... I am a replaced alert");					
+					</pre>
 					</p>
 					<p>
-						<input type="button" class="button" value="Alert !"
-							onclick="dalert.ReplaceAlert();alert('Hello, I am a Replaced Alert!');" />
+						<input type="button" id="replaced_alert" class="button" value="Replaced Alert !" />
 					</p>
 				</div>
 			</div>
@@ -142,40 +150,106 @@
 					<p class="fancytext fontwhite">
 						Replace native confirm with DAlert : <span class="fontyellow">dalert.ReplaceConfirm();</span>
 					</p>
-					<p class="dxheader1 fontwhite">Then</p>
+					<p class="dxheader1 fontwhite">Example</p>
 					<p class="fancytext fontwhite">
-						Simple Usage: <span class="fontyellow">confirm("Wanna
-							replace native confirm?","yes","no");</span>
+						<pre class="brush:js">
+
+						dalert.ReplaceConfirm();
+						confirm("Are You Sure?","DAlert Confirm !",function(result){
+								if(result){
+								dalert.alert("You've just clicked YES !");
+								}
+								else{
+								dalert.alert("You've just clicked NO !");
+								}
+						});
+					</pre>
 					</p>
 					<p>
-						<input type="button" class="button" value="Confirm !"
-							onclick="dalert.ReplaceConfirm();confirm('Wanna replace native confirm?','yes','no');" />
+						<input type="button" id="confirm_replaced" class="button" value="Replaced Confirm !" />
 					</p>
 				</div>
 			</div>
 
 			<div id="dalert_paramters" class="content">
 				<div class="dxsection">
-					<p class="topic">Parameter Values And Usage</p>
+					<p class="topic">Configuration :: Options with Parameter Values And Usage</p>
 					<p class="fancytext fontwhite">
-						DAlert Parameters : <span class="fontyellow">(dalert_msg,
-							title_msg, FontColor, bodyColor)</span>
-					</p>
-					<p class="dxheader1 fontwhite">And</p>
-					<p class="fancytext fontwhite">
-						DAlert Confirm Parameters: <span class="fontyellow">(dalertConf_msg,
-							trueFunction, falseFunction, title_msg, FontColor, bodyColor)</span>
+						DAlert Options : <span class="fontyellow">(dalert_msg,
+							title_msg, options)</span>
+
+
 					</p>
 
+					<span class="fontwhite">Options Array {} :: Customize the look and feel :: Use the third parameter to pass the options array as in the below example</span>
+					<pre class="brush:js">
+					//Start :: jQuery Click Event :: or as you wish to handle the click event
+					$("#dalert_options").click(function(){
+						//Start:: DAlert 
+						dalert.alert("Message","Tittle",{
+							messageFontColor:'white',
+							messageBgColor:'rgb(119, 49, 134)',
+							tittleBgColor:'black',
+							tittleFontColor:'white'
+						});
+						//End:: DAlert 
+					});
+					//End :: jQuery Click Event :: or as you wish to handle the click event
+					</pre>
+					<input type="button" class="button" id="dalert_options" value="DAlert - Alert Customized"/>
+
+					<div class="fontyellow">messageFontColor <span class="fontwhite">= Dialog body font color</span></div>
+					<div class="fontyellow">messageBgColor <span class="fontwhite">= Dialog body background color</span></div>
+					<div class="fontyellow">tittleFontColor <span class="fontwhite">= Dialog tittle font color</span></div>
+					<div class="fontyellow">tittleBgColor <span class="fontwhite">= Dialog tittle background color</span></div>
+
+					
+					<div class="fancytext fontwhite">
+						DAlert Confirm Parameters: <span class="fontyellow">(dalert_msg,
+							title_msg, callback, options)</span>
+					</div>
+
+					<div class="fontyellow">callback <span class="fontwhite">= carries the result boolean value of specific button click from Yes/NO</span></div>
+<p class="dxheader1 fontwhite">Example</p>
 				</div>
+				<div class="dxheader1 fontwhite">Example of Confirm Message With Options Defined</div>
+				<div>
+
+					<pre class="brush:js">
+					//Start :: jQuery Click Event :: or as you wish to handle the click event
+					$("#confirm_options").click(function(){
+						//Start:: DAlert Confirm Customized
+						dalert.confirm("Message","Tittle",
+							function(result){
+									if(result){
+									dalert.alert("You've just clicked YES !");
+									}
+									else{
+									dalert.alert("You've just clicked NO !");
+									}
+							},
+							{
+							messageFontColor:'white',
+							messageBgColor:'rgb(119, 49, 134)',
+							tittleBgColor:'black',
+							tittleFontColor:'white'
+							}
+						);
+						//End:: DAlert Confirm Customized 
+					});
+					//End :: jQuery Click Event :: or as you wish to handle the click event
+
+					</pre>
+
+
+				</div>
+				<input class="button" id="confirm_options" value="Confirm DAlert Customized" type="button" />
 			</div>
 
 		</div>
 
 		<div style="width: 100%">
-
 			<div class="layleft fixedleft">
-
 				<div class="">
 					<div class="">
 						<ul class="nav verti vertiOnly" style="">
@@ -186,24 +260,12 @@
 									Alert()</a></li>
 							<li id="replace_confirm_link" class="verti"><a>Replacing
 									Confirm()</a></li>
-							<li id="parameterized_link" class="verti"><a>Parameters</a></li>
+							<li id="parameterized_link" class="verti"><a>Options & Config</a></li>
 
 						</ul>
-
-
 					</div>
-
-
 				</div>
-
 			</div>
-
-
-
-
-
-
-
 		</div>
 
 
@@ -227,28 +289,94 @@
 	<script type="text/javascript" src="js/sitedx.js"></script>
 	<script type="text/javascript" src="js/shCore.js"></script>
 	<script type="text/javascript" src="js/shBrushJScript.js"></script>
-	<script type="text/javascript" src="js/shBrushCss.js"></script>
+	
 	<script type="text/javascript" src="js/shBrushXml.js"></script>
 	<script type="text/javascript">
 		SyntaxHighlighter.defaults['toolbar'] = false;
 		SyntaxHighlighter.all();
+
+		/*Doc Ready*/
+		$(function(){
+
+			$("#dalert_button").click(function(){
+				//Start :: DAlert Alert Usage		
+				dalert.alert("Hello, I am a DAlert!");
+				//End :: DAlert Alert Usage
+			});
+
+			$("#confirm_button").click(function(){
+
+				dalert.confirm("Are You Sure?","DAlert Confirm !",function(result){
+								if(result){
+								dalert.alert("You've just clicked YES !");
+								}
+								else{
+								dalert.alert("You've just clicked NO !");
+								}
+				});
+			});
+
+			$("#replaced_alert").click(function(){
+				dalert.ReplaceAlert();
+				alert("Hey... I am a replaced alert");
+
+			});
+
+			$("#confirm_replaced").click(function(){
+				dalert.ReplaceConfirm();
+				confirm("Are You Sure?","DAlert Confirm !",function(result){
+								if(result){
+								dalert.alert("You've just clicked YES !");
+								}
+								else{
+								dalert.alert("You've just clicked NO !");
+								}
+				});
+
+			});
+
+
+			$("#dalert_options").click(function(){
+
+					dalert.alert("Message","Tittle",{
+						messageFontColor:'white',
+						messageBgColor:'rgb(119, 49, 134)',
+						tittleBgColor:'black',
+						tittleFontColor:'white'
+					});
+
+
+			});
+
+
+			//Start :: jQuery Click Event :: or as you wish to handle the click event
+					$("#confirm_options").click(function(){
+						//Start:: DAlert 
+						dalert.confirm("Message","Tittle",
+							function(result){
+									if(result){
+									dalert.alert("You've just clicked YES !");
+									}
+									else{
+									dalert.alert("You've just clicked NO !");
+									}
+							},
+							{
+							messageFontColor:'white',
+							messageBgColor:'rgb(119, 49, 134)',
+							tittleBgColor:'black',
+							tittleFontColor:'white'
+							}
+						);
+						//End:: DAlert 
+					});
+					//End :: jQuery Click Event :: or as you wish to handle the click event
+
+
+		});
 	</script>
 
-	<script type="text/javascript">
 	
-
-		//Yes Function
-		function yes() {
-
-			dalert.alert("You Clicked Yes!");
-
-		}
-
-		function no() {
-
-			dalert.alert("You Clicked No!");
-		}
-	</script>
 </body>
 
 

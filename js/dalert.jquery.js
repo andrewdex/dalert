@@ -1,13 +1,13 @@
 /*
  * DAlert jQueryPlugin
  * dalert.alert("Making the Alert Box much simpler, yet fancy");
- * Version: 1.0
- * Author: Andrew dEX (Dilusha)
+ * Version: 1.1
+ * Author: Dilusha Gonagala (andrewdex)
  * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
- * Info & API : http://dalert.andrewdex.com
+ * Info & API : http://andrewdex.github.io/dalert/
  * Contribute : http://www.github.com/andrewdex/dalert
  * 
- * Copyright 2013 Andrew dEX (Dilusha Gonagala)
+ * Copyright 2014  Dilusha Gonagala (@andrewdex)
  * 
 Released under the MIT license
 _______________________________
@@ -32,31 +32,65 @@ THE SOFTWARE.
  *
  */
 
-//Making the anonymous function
-(function (window, $) {
 
-    //for straight coding like a boss :)
+(function (Dalert, $, undefined) {
+
     "use strict";
 
-    //Dalert Namespace for the dalert plugin library
-    var dalert = {
-    		
-   
+    //Dalert Main namespaceNamespace for the dalert plugin library
 
+    dalert = {
         //Alert Dialog box Implementation
-        alert: function (dalert_msg, title_msg, FontColor, bodyColor) {
+        alert: function (dalert_msg, title_msg, options) {
 
+            //Default Option Values
+            var tittle = "DAlert !",
+                message = "Hi.. I am A DAlert !",
+                tittleBgColor_def = "#275F98",
+                tittleFontColor_def = "#ffffff",
+                messageBgColor_def = "#ffffff",
+                messageFontColor_def = "#000000";
+
+            //Set options
+            if (options !== undefined) {
+
+                //Message font color
+                if (options.messageFontColor !== undefined && options.messageFontColor !== "") {
+
+                    messageFontColor_def = options.messageFontColor;
+
+                }
+
+                //Message background color
+                if (options.messageBgColor !== undefined && options.messageBgColor !== "") {
+
+                    messageBgColor_def = options.messageBgColor;
+
+                }
+
+                //Tittle background color
+                if (options.tittleBgColor !== undefined && options.tittleBgColor !== "") {
+
+                    tittleBgColor_def = options.tittleBgColor;
+
+                }
+
+                //Tittle font color
+                if (options.tittleFontColor !== undefined && options.tittleFontColor !== "") {
+
+                    tittleFontColor_def = options.tittleFontColor;
+
+                }
+
+
+            }
+
+            //tittle message
             if (!title_msg)
-                title_msg = 'DAlert';
-
-            if (!FontColor)
-                FontColor = 'black';
-
-            if (!bodyColor)
-                bodyColor = 'rgb(255, 255, 255)';
-
+                title_msg = tittle;
+            //message text
             if (!dalert_msg)
-                dalert_msg = 'This is a Dalert !';
+                dalert_msg = message;
 
             try {
                 $("<div></div>").html(dalert_msg).dialog({
@@ -64,26 +98,25 @@ THE SOFTWARE.
                     resizable: false,
                     modal: true,
                     //Make it more secure and neat when closing - Removes the dialog content onClose
-                    beforeClose: function(event, ui) { 
-                         $(this).remove();
-                     },
+                    beforeClose: function (event, ui) {
+                        $(this).remove();
+                    },
                     buttons: {
                         "Ok": function () {
                             $(this).dialog("close");
-                           
-
-
                         }
                     }
                 });
-                // jQuery UI ByPass
-                $(".ui-widget-content").css("color", FontColor);
-                $(".ui-widget-content").css("background", bodyColor);
 
+                // jQuery UI ByPass
+                $(".ui-widget-content").css("color", messageFontColor_def);
+                $(".ui-widget-content").css("background", messageBgColor_def);
+                $(".ui-widget-header").css("background", tittleBgColor_def);
+                $(".ui-dialog-title").css("color", tittleFontColor_def);
 
                 //Call jQueryUI ByPass
                 dalert.byPassjQueryUI();
-                
+
                 //Catching Errors, In Case if something goes wrong 
                 //Act normal as nothing happened :) and output the native alert function.  
             } catch (error) {
@@ -94,66 +127,121 @@ THE SOFTWARE.
         },
 
         // DAlert Confirm Dialog
-        confirm: function (dalertConf_msg, trueFunction, falseFunction, title_msg,
-            FontColor, bodyColor) {
+        confirm: function (dalert_msg, title_msg, callback, options) {
+
+            //Default Option Values
+            var tittle = "DAlert !",
+                message = "Hi.. I am A DAlert Confirm !",
+                tittleBgColor_def = "#275F98",
+                tittleFontColor_def = "#ffffff",
+                messageBgColor_def = "#ffffff",
+                messageFontColor_def = "#000000",
+                result;
+
+            //Set options
+            if (options !== undefined) {
+
+                //Message font color
+                if (options.messageFontColor !== undefined && options.messageFontColor !== "") {
+
+                    messageFontColor_def = options.messageFontColor;
+
+                }
+
+                //Message background color
+                if (options.messageBgColor !== undefined && options.messageBgColor !== "") {
+
+                    messageBgColor_def = options.messageBgColor;
+
+                }
+
+                //Tittle background color
+                if (options.tittleBgColor !== undefined && options.tittleBgColor !== "") {
+
+                    tittleBgColor_def = options.tittleBgColor;
+
+                }
+
+                //Tittle font color
+                if (options.tittleFontColor !== undefined && options.tittleFontColor !== "") {
+
+                    tittleFontColor_def = options.tittleFontColor;
+
+                }
 
 
+            }
+
+            //tittle message
             if (!title_msg)
-                title_msg = 'DAlert';
-
-            if (!FontColor)
-                FontColor = 'black';
-
-            if (!bodyColor)
-                bodyColor = 'rgb(255, 255, 255)';
-
-            if (!dalertConf_msg)
-                dalertConf_msg = 'This is a Dalert Confirm !';
+                title_msg = tittle;
+            //message text
+            if (!dalert_msg)
+                dalert_msg = message;
 
             try {
-                $("<div></div>").html(dalertConf_msg).dialog({
+                $("<div></div>").html(dalert_msg).dialog({
                     title: title_msg,
                     resizable: false,
                     modal: true,
                     //Make it more secure and neat when closing - Removes the dialog content onClose
-                    beforeClose: function(event, ui) { 
-                         $(this).remove();
-                     },
+                    beforeClose: function (event, ui) {
+                        $(this).remove();
+                    },
                     buttons: {
                         "Yes": function () {
-                            if (!trueFunction) {
-                                $(this).dialog("close");
-                            } else {
-                                eval(trueFunction)();
-                                $(this).dialog("close");
 
+                            result = true;
+                            if (callback !== undefined && callback !== "") {
+                                if (typeof (callback) == "function") {
+                                    // do something
+                                    callback(result);
+                                    $(this).dialog("close");
+                                } else {
+                                    dalert.alert("Not a function !");
+                                }
+
+                            }
+                            if (callback === "" || callback === undefined) {
+                                dalert.alert("Please define a callback function");
                             }
 
                         },
                         "No": function () {
-                            if (!falseFunction) {
-                                $(this).dialog("close");
 
-                            } else {
-                                eval(falseFunction)();
-                                $(this).dialog("close");
+                            result = false;
+                            if (callback !== undefined && callback !== "") {
+                                if (typeof (callback) == "function") {
 
+                                    callback(result);
+                                    $(this).dialog("close");
+                                } else {
+
+                                    dalert.alert("Not a function !");
+                                }
 
                             }
+                            if (callback === "" || callback === undefined) {
+                                dalert.alert("Please define a callback function");
+                            }
+
+
 
                         }
                     }
                 });
 
-                // jQuery UI-CSS Framework ByPass
-                $(".ui-widget-content").css("color", FontColor);
-                $(".ui-widget-content").css("background", bodyColor);
+                // jQuery UI ByPass
+                $(".ui-widget-content").css("color", messageFontColor_def);
+                $(".ui-widget-content").css("background", messageBgColor_def);
+                $(".ui-widget-header").css("background", tittleBgColor_def);
+                $(".ui-dialog-title").css("color", tittleFontColor_def);
 
                 //Call buttonPadding ByPass
                 dalert.byPassjQueryUI();
 
                 //Catching Errors, In Case if something goes wrong with jQuery UI, 
-                //Replicate the native confirm function and handling the parameterized true false functions.  	
+                //Replicate the native confirm function and handling the parameterized true false functions.    
             } catch (error) {
                 console.log(error);
                 var conf_val = confirm(dalertConf_msg);
@@ -165,8 +253,6 @@ THE SOFTWARE.
             }
 
         },
-        
-    
 
         //jQuery UI Override for button padding and jQuery Dialog UI
         byPassjQueryUI: function () {
@@ -176,11 +262,11 @@ THE SOFTWARE.
             $(".ui-button-text-only .ui-button-text").css("padding-top", "5px");
             $(".ui-button-text-only .ui-button-text").css("padding-bottom", "5px");
             $(".ui-button-text-only .ui-button-text").css("font-size", "13px");
-            
+
             $(".ui-dialog").css("border-width", "1px");
             $(".ui-dialog").css("border-style", "solid");
             $(".ui-dialog").css("border-color", "#76A0F8");
-            $(".ui-widget-header").css("background", "#26598f");
+
 
 
         },
@@ -201,5 +287,5 @@ THE SOFTWARE.
 
     };
 
-    window.dalert = dalert;
-})(window, jQuery);
+
+}(window.dalert = window.dalert || {}, jQuery));
