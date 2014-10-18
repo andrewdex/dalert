@@ -12,11 +12,12 @@ Dependencies : jQuery, jQuery UI
 ## Simple usage
 
 //Dalert Alert Dialog
+```js
 dalert.alert("I am a liitle DAlert !"); 
-
+```
 
 //Dalert Confirm Dialog
-```sh
+```js
 dalert.alert("Are you sure ? ", "Confirm Tittle" , 
 function(result){
 	if(result){
