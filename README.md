@@ -26,7 +26,7 @@ function(result){
 	}
 	else{
 	//if no clicked
-	dalert.alert("Clicked yes"); 
+	dalert.alert("Clicked no"); 
 	}
 }
 );
