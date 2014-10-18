@@ -22,9 +22,11 @@ dalert.alert("Are you sure ? ", "Confirm Tittle" ,
 function(result){
 	if(result){
 	//If yes clicked 
+	dalert.alert("Clicked yes"); 
 	}
 	else{
 	//if no clicked
+	dalert.alert("Clicked no"); 
 	}
 }
 );
