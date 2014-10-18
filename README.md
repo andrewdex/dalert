@@ -16,6 +16,7 @@ dalert.alert("I am a liitle DAlert !");
 
 
 //Dalert Confirm Dialog
+```sh
 dalert.alert("Are you sure ? ", "Confirm Tittle" , 
 function(result){
 	if(result){
@@ -26,6 +27,8 @@ function(result){
 	}
 }
 );
+```
+
 
 ## Getting started
 Download the [latest release](https://github.com/andrewdex/dalert/archive/master.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
