@@ -1,4 +1,4 @@
-DAlert 1.1
+DAlert 1.1.0
 ======
 
 Dalert is a simple jQuery and jQuery UI plugin that easily create a customizable alert (or confirm) window as a replacement for the native javascript alert and confirm methods.
@@ -14,6 +14,14 @@ Dependencies : jQuery, jQuery UI
 //Dalert Alert Dialog
 ```js
 dalert.alert("I am a liitle DAlert !"); 
+```
+//Dalert With Callback
+```js
+//Start :: DAlert Alert Usage with a callback on close of the alert		
+    dalert.alert("Hello, I am a DAlert!","Title", function callbackMe(){
+        dalert.alert("Me callback !");
+    });
+//End :: DAlert Alert Callback Usage
 ```
 
 //Dalert Confirm Dialog
