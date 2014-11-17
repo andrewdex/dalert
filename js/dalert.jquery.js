@@ -1,7 +1,7 @@
 /*
  * DAlert jQueryPlugin
  * dalert.alert("Making the Alert Box much simpler, yet fancy");
- * Version: 1.1
+ * Version: 1.1.0
  * Author: Dilusha Gonagala (andrewdex)
  * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
  * Info & API : http://andrewdex.github.io/dalert/
@@ -41,11 +41,12 @@ THE SOFTWARE.
 
     dalert = {
         //Alert Dialog box Implementation
-        alert: function (dalert_msg, title_msg, options) {
+        alert: function (dalert_msg, title_msg, callback, options) {
 
             //Default Option Values
             var tittle = "DAlert !",
                 message = "Hi.. I am A DAlert !",
+                callbackThis,
                 tittleBgColor_def = "#275F98",
                 tittleFontColor_def = "#ffffff",
                 messageBgColor_def = "#ffffff",
@@ -85,6 +86,17 @@ THE SOFTWARE.
 
             }
 
+            /*Alert Callback declaration/assignment and validation*/
+            if(callback !== undefined){
+                
+                if(Object.prototype.toString.call(callback) === '[object Function]'){
+
+                        callbackThis = callback;
+
+                }    
+                
+            }
+
             //tittle message
             if (!title_msg)
                 title_msg = tittle;
@@ -105,6 +117,16 @@ THE SOFTWARE.
                         "Ok": function () {
                             $(this).dialog("close");
                         }
+                    },
+
+                    /*Callback support for alert*/
+                    close: function () {
+                    
+                    if(callbackThis !== undefined){
+                        callbackThis();
+                    }
+                    
+
                     }
                 });
 
