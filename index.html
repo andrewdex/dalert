@@ -86,7 +86,29 @@
 					<p class="fancytext fontwhite">
 							<input type="button" id="dalert_button" class="button" value="DAlert ME!"/>
 						</p>
-			<p class="fancytext fontwhite">4. Create a confirm dialog box.</p>
+							<p class="fancytext fontwhite">4. Create a simple alert with a callback.</p>
+<pre class="brush:xml;">
+&lt;input type=&quot;button&quot; class=&quot;button&quot; id=&quot;dalert_button&quot; value=&quot;DAlert&quot; /&gt;
+</pre>
+					<div>
+						<pre class="brush:js">
+						//Start :: jQuery Click Event :: or as you wish to handle the click event
+							$("#dalert_button").click(function(){
+								//Start :: DAlert Alert Usage with a callback on close of the alert		
+								dalert.alert("Hello, I am a DAlert!","Title",function callbackMe(){
+									dalert.alert("Me callback !");
+								});
+								//End :: DAlert Alert Callback Usage
+							});
+						//End :: jQuery Click Event :: or as you wish to handle the click event		
+						</pre>
+						</div>
+
+					
+					<p class="fancytext fontwhite">
+							<input type="button" id="dalert_callback_button" class="button" value="DAlert Callback ME!"/>
+						</p>
+			<p class="fancytext fontwhite">5. Create a confirm dialog box.</p>
 <pre class="brush:xml;">
 &lt;input type=&quot;button&quot; class=&quot;button&quot; id=&quot;confirm_button&quot; value=&quot;DAlert-Confirm&quot;/&gt;
 </pre>
@@ -303,6 +325,16 @@
 				//Start :: DAlert Alert Usage		
 				dalert.alert("Hello, I am a DAlert!");
 				//End :: DAlert Alert Usage
+			});
+
+			$("#dalert_callback_button").click(function(){
+
+				//Start :: DAlert Alert Usage with a callback on close of the alert		
+					dalert.alert("Hello, I am a DAlert!","Title", function callbackMe(){
+						dalert.alert("Me callback !");
+					});
+				//End :: DAlert Alert Callback Usage
+
 			});
 
 			$("#confirm_button").click(function(){
