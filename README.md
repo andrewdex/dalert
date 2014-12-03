@@ -13,12 +13,12 @@ Dependencies : jQuery, jQuery UI
 
 //Dalert Alert Dialog
 ```js
-dalert.alert("I am a liitle DAlert !"); 
+dalert.alert("I am a little DAlert !"); 
 ```
 //Dalert With Callback
 ```js
 //Start :: DAlert Alert Usage with a callback on close of the alert		
-    dalert.alert("Hello, I am a DAlert!","Title", function callbackMe(){
+    dalert.alert("Hello, I am a DAlert!", "Title", function callbackMe(){
         dalert.alert("Me callback !");
     });
 //End :: DAlert Alert Callback Usage
@@ -26,18 +26,13 @@ dalert.alert("I am a liitle DAlert !");
 
 //Dalert Confirm Dialog
 ```js
-dalert.alert("Are you sure ? ", "Confirm Tittle" , 
-function(result){
-	if(result){
-	//If yes clicked 
-	dalert.alert("Clicked yes"); 
-	}
-	else{
-	//if no clicked
-	dalert.alert("Clicked no"); 
-	}
-}
-);
+dalert.alert("Are you sure?", "Confirm Title" , function (result) {
+  if (result) {
+    dalert.alert("Clicked yes"); // If yes clicked 
+  } else {
+    dalert.alert("Clicked no");  // If no clicked
+  }
+});
 ```
 
 
