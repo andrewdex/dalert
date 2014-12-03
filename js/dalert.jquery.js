@@ -6,9 +6,9 @@
  * Dependencies : Jquery 1.6 + , Jquery UI 1.6 + Jquery UI CSS Framework
  * Info & API : http://andrewdex.github.io/dalert/
  * Contribute : http://www.github.com/andrewdex/dalert
- * 
+ *
  * Copyright 2014  Dilusha Gonagala (@andrewdex)
- * 
+ *
 Released under the MIT license
 _______________________________
 http://opensource.org/licenses/MIT
@@ -87,23 +87,24 @@ THE SOFTWARE.
             }
 
             /*Alert Callback declaration/assignment and validation*/
-            if(callback !== undefined){
-                
-                if(Object.prototype.toString.call(callback) === '[object Function]'){
+            if (callback !== undefined) {
 
-                        callbackThis = callback;
+                if (Object.prototype.toString.call(callback) === '[object Function]') {
 
-                }    
-                
+                      callbackThis = callback;
+
+                }
+
             }
 
             //tittle message
-            if (!title_msg)
+            if (!title_msg) {
                 title_msg = tittle;
+            }
             //message text
-            if (!dalert_msg)
+            if (!dalert_msg) {
                 dalert_msg = message;
-
+            }
             try {
                 $("<div></div>").html(dalert_msg).dialog({
                     title: title_msg,
@@ -121,11 +122,10 @@ THE SOFTWARE.
 
                     /*Callback support for alert*/
                     close: function () {
-                    
-                    if(callbackThis !== undefined){
-                        callbackThis();
-                    }
-                    
+
+                        if (callbackThis !== undefined) {
+                            callbackThis();
+                        }
 
                     }
                 });
@@ -139,8 +139,8 @@ THE SOFTWARE.
                 //Call jQueryUI ByPass
                 dalert.byPassjQueryUI();
 
-                //Catching Errors, In Case if something goes wrong 
-                //Act normal as nothing happened :) and output the native alert function.  
+                //Catching Errors, In Case if something goes wrong
+                //Act normal as nothing happened :) and output the native alert function.
             } catch (error) {
                 console.log(error);
                 alert(dalert_msg);
@@ -195,12 +195,13 @@ THE SOFTWARE.
             }
 
             //tittle message
-            if (!title_msg)
+            if (!title_msg) {
                 title_msg = tittle;
+            }
             //message text
-            if (!dalert_msg)
+            if (!dalert_msg) {
                 dalert_msg = message;
-
+            }
             try {
                 $("<div></div>").html(dalert_msg).dialog({
                     title: title_msg,
@@ -215,7 +216,7 @@ THE SOFTWARE.
 
                             result = true;
                             if (callback !== undefined && callback !== "") {
-                                if (typeof (callback) == "function") {
+                                if (typeof (callback) === "function") {
                                     // do something
                                     callback(result);
                                     $(this).dialog("close");
@@ -233,7 +234,7 @@ THE SOFTWARE.
 
                             result = false;
                             if (callback !== undefined && callback !== "") {
-                                if (typeof (callback) == "function") {
+                                if (typeof (callback) === "function") {
 
                                     callback(result);
                                     $(this).dialog("close");
@@ -262,12 +263,12 @@ THE SOFTWARE.
                 //Call buttonPadding ByPass
                 dalert.byPassjQueryUI();
 
-                //Catching Errors, In Case if something goes wrong with jQuery UI, 
-                //Replicate the native confirm function and handling the parameterized true false functions.    
+                //Catching Errors, In Case if something goes wrong with jQuery UI,
+                //Replicate the native confirm function and handling the parameterized true false functions.
             } catch (error) {
                 console.log(error);
                 var conf_val = confirm(dalertConf_msg);
-                if (conf_val == true) {
+                if (conf_val === true) {
                     eval(trueFunction)();
                 } else {
                     eval(falseFunction)();
