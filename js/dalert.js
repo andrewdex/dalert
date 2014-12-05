@@ -1,158 +1,278 @@
-;(function(window) {
+/*
+ * DAlert - Pure JS Modal/Alert/Confirm Extention
+ * dalert.alert("Making the Alert Box much simpler, yet fancy");
+ * Version: 1.1.0
+ * Author: Dilusha Gonagala (andrewdex)
+ * Dependencies : Just JavaScript
+ * Info & API : http://andrewdex.github.io/dalert/
+ * Contribute : http://www.github.com/andrewdex/dalert
+ *
+ * Copyright 2014  Dilusha Gonagala (@andrewdex)
+ *
+Released under the MIT license
+_______________________________
+http://opensource.org/licenses/MIT
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-	"use strict";
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-	var Dalert = {
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+ *
+ */
 
-		originalAlert: window.alert,
-		originalConfirm: window.confirm,
+;
+(function (window, $) {
 
-		defaultConfig: {
-			title: "DAlert!",
-			message: "Message",
-			titleBgColor: "#275F98",
-			titleFontColor: "#ffffff",
-			messageBgColor: "#ffffff",
-			messageFontColor: "#000000"
-		},
+    "use strict";
 
-		alert: function (message, title, callback, options) {
-			var alertSettings = Dalert.setOptions(message, title, callback, options),
-				alertElement = document.createElement('div');
+    var Dalert = {
 
-			alertElement.innerHTML = alertSettings.message;
+        originalAlert: window.alert,
+        originalConfirm: window.confirm,
 
-			Dalert.dialog(alertElement, {
-				title: alertSettings.title,
-				resizable: false,
-				modal: true,
 
-				beforeClose: function (event, ui) {
-					$(this).remove();
-				},
+        defaultConfigStatic: {
+            title: "DAlert!",
+            message: "Message",
+            titleBgColor: "#275F98",
+            titleFontColor: "#ffffff",
+            messageBgColor: "#ffffff",
+            messageFontColor: "#000000"
+        },
 
-				buttons: {
-					"Ok": function () {
-						Dalert.closeDialog(this);
-					}
-				},
+        defaultConfig: {
+            title: "DAlert!",
+            message: "Message",
+            titleBgColor: "#275F98",
+            titleFontColor: "#ffffff",
+            messageBgColor: "#ffffff",
+            messageFontColor: "#000000"
+        },
 
-				close: alertSettings.callback
-			});
+        alert: function (message, title, callback, options) {
+            var alertSettings = Dalert.setOptions(message, title, callback, options),
+                alertElement = document.createElement('div');
 
-			// When drop jQueryUI - Remove this!
-			Dalert.byPassJqueryUi(alertSettings);
-		},
+            alertElement.innerHTML = alertSettings.message;
 
-		confirm: function (message, title, callback, options) {
-			var alertSettings = Dalert.setOptions(message, title, callback, options),
-				alertElement = document.createElement('div');
+            Dalert.dialog(alertElement, {
+                title: alertSettings.title,
+                resizable: false,
+                modal: true,
 
-			alertElement.innerHTML = alertSettings.message;
+                beforeClose: function (event, ui) {
+                    $(this).remove();
+                },
 
-			Dalert.dialog(alertElement, {
-				title: alertSettings.title,
-				resizable: false,
-				modal: true,
+                buttons: {
+                    "Ok": function () {
+                        Dalert.closeDialog(this);
+                    }
+                },
 
-				beforeClose: function (event, ui) {
-					$(this).remove();
-				},
+                close: alertSettings.callback
+            });
 
-				buttons: {
-					"Yes": function () {
-						var confirmResult = true;
+            // When drop jQueryUI - Remove this!
+            Dalert.byPassJqueryUi(alertSettings);
+        },
 
-						if(!alertSettings.callback) {
-							Dalert.alert("Please define a callback function");
-							return;
-						}
+        confirm: function (message, title, callback, options) {
+            var alertSettings = Dalert.setOptions(message, title, callback, options),
+                alertElement = document.createElement('div');
 
-						if (typeof (alertSettings.callback) !== "function") {
-							Dalert.alert("Not a function !");
-							return;
-						}
+            alertElement.innerHTML = alertSettings.message;
 
-						alertSettings.callback(confirmResult);
-						Dalert.closeDialog(this);
-					},
+            Dalert.dialog(alertElement, {
+                title: alertSettings.title,
+                resizable: false,
+                modal: true,
 
-					"No": function () {
-						var confirmResult = false;
+                beforeClose: function (event, ui) {
+                    $(this).remove();
+                },
 
-						if(!alertSettings.callback) {
-							Dalert.alert("Please define a callback function");
-							return;
-						}
+                buttons: {
+                    "Yes": function () {
+                        var confirmResult = true;
 
-						if (typeof (alertSettings.callback) !== "function") {
-							Dalert.alert("Not a function !");
-							return;
-						}
+                        if (!alertSettings.callback) {
+                            Dalert.alert("Please define a callback function");
+                            return;
+                        }
 
-						alertSettings.callback(confirmResult);
-						Dalert.closeDialog(this);
-					}
-				}
-			});
+                        if (typeof (alertSettings.callback) !== "function") {
+                            Dalert.alert("Not a function !");
+                            return;
+                        }
 
-			// When drop jQueryUI - Remove this!
-			Dalert.byPassJqueryUi(alertSettings);
-		},
+                        alertSettings.callback(confirmResult);
+                        Dalert.closeDialog(this);
+                        Dalert.byPassJqueryUi(alertSettings);
+                    },
 
-		// When drop jQueryUI - Replace this
-		dialog: function(alertElement, settings) {
-			$(alertElement).dialog(settings);
-		},
+                    "No": function () {
+                        var confirmResult = false;
 
-		closeDialog: function(element) {
-			$(element).dialog("close");
-		},
+                        if (!alertSettings.callback) {
+                            Dalert.alert("Please define a callback function");
+                            return;
+                        }
 
-		byPassJqueryUi: function(settings) {
-			document.querySelector(".ui-widget-content").style.background = settings.messageBgColor;
-			document.querySelector(".ui-widget-header").style.background = settings.titleBgColor;
-			document.querySelector(".ui-dialog-title").style.color = settings.titleFontColor;
-			document.querySelector(".ui-widget-content").style.color = settings.messageFontColor;
+                        if (typeof (alertSettings.callback) !== "function") {
+                            Dalert.alert("Not a function !");
+                            return;
+                        }
 
-			document.querySelector(".ui-button-text-only .ui-button-text").style.padding = "5px 20px";
-			document.querySelector(".ui-button-text-only .ui-button-text").style.fontSize = "13px";
+                        alertSettings.callback(confirmResult);
+                        Dalert.closeDialog(this);
+                        Dalert.byPassJqueryUi(alertSettings);
+                    }
+                }
+            });
 
-			document.querySelector(".ui-dialog").style.border = "1px solid #76A0F8";
-		},
+            // When drop jQueryUI - Remove this!
+            Dalert.byPassJqueryUi(alertSettings);
+        },
 
-		setOptions: function(message, title, callback, options) {
-			var thisOptions = Dalert.defaultConfig;
+        // When drop jQueryUI - Replace this with a new method for dialog
+        dialog: function (alertElement, settings) {
+            $(alertElement).dialog(settings);
+        },
 
-			thisOptions.title = title || Dalert.defaultConfig.title;
-			thisOptions.message = message || Dalert.defaultConfig.message;
-			thisOptions.callback = callback || new Function;
+        closeDialog: function (element) {
+            $(element).dialog("close");
+        },
 
-			if(options){
-				thisOptions.tittleBgColor = options.titleBgColor || Dalert.defaultConfig.titleBgColor;
-				thisOptions.tittleFontColor = options.titleFontColor || Dalert.defaultConfig.titleFontColor;
-				thisOptions.messageBgColor = options.messageBgColor || Dalert.defaultConfig.messageBgColor;
-				thisOptions.messageFontColor = options.messageFontColor || Dalert.defaultConfig.messageFontColor;
-			}
+        byPassJqueryUi: function (settings) {
 
-			return thisOptions;
-		},
+            var UIDialogTittle = document.querySelectorAll(".ui-dialog-title"),
+                UIbuttons = document.querySelectorAll(".ui-button-text-only .ui-button-text"),
+                UIWidgetHeader = document.querySelectorAll(".ui-widget-header"),
+                UIWidget = document.querySelectorAll(".ui-widget-content");
 
-		restore: function() {
-			window.alert = originalAlert;
-			window.confirm = originalConfirm;
-		},
+            for (var i = 0; i < UIDialogTittle.length; i++) {
+                UIDialogTittle[i].style.color = settings.titleFontColor;
 
-		replaceAlert: function () {
-			window.alert = Dalert.alert;
-		},
+            }
 
-		replaceConfirm: function () {
-			window.confirm = Dalert.confirm;
-		}
+            for (var i = 0; i < UIWidgetHeader.length; i++) {
+                UIWidgetHeader[i].style.background = settings.titleBgColor;
 
-	};
+            }
 
-	window.dalert = Dalert;
+            for (var i = 0; i < UIWidget.length; i++) {
+                UIWidget[i].style.background = settings.messageBgColor;
+                UIWidget[i].style.color = settings.messageFontColor;
+            }
 
-})(window);
+            for (var i = 0; i < UIbuttons.length; i++) {
+
+                UIbuttons[i].style.padding = "5px 20px";
+                UIbuttons[i].style.fontSize = "13px";
+
+            }
+
+            document.querySelector(".ui-dialog").style.border = "1px solid #76A0F8";
+
+
+        },
+
+        setOptions: function (message, title, callback, options) {
+
+            var thisOptions = Dalert.defaultConfig;
+            thisOptions.title = title || Dalert.defaultConfig.title;
+            thisOptions.message = message || Dalert.defaultConfig.message;
+            thisOptions.callback = callback || new Function;
+
+            if (options) {
+
+            	/*If all options are defined*/
+                if (options.titleBgColor !== undefined || options.titleBgColor !== "") {
+
+                    thisOptions.titleBgColor = options.titleBgColor;
+                }
+
+                if (options.titleFontColor !== undefined || options.titleFontColor !== "") {
+
+                    thisOptions.titleFontColor = options.titleFontColor;
+                }
+
+                if (options.messageBgColor !== undefined || options.messageBgColor !== "") {
+
+                    thisOptions.messageBgColor = options.messageBgColor;
+
+                }
+
+                if (options.messageFontColor !== undefined || options.messageFontColor !== "") {
+
+                    thisOptions.messageFontColor = options.messageFontColor;
+                }
+
+                /*If Not*/
+
+                if (options.titleBgColor == undefined || options.titleBgColor == "") {
+
+                    thisOptions.titleBgColor = Dalert.defaultConfigStatic.titleBgColor;
+                }
+
+
+                if (options.titleFontColor == undefined || options.titleFontColor == "") {
+
+                    thisOptions.titleFontColor = Dalert.defaultConfigStatic.titleFontColor;
+                }
+
+                if (options.messageBgColor == undefined || options.messageBgColor == "") {
+
+                    thisOptions.messageBgColor = Dalert.defaultConfigStatic.messageBgColor;
+                }
+
+                if (options.messageFontColor == undefined || options.messageFontColor == "") {
+
+                    thisOptions.messageFontColor = Dalert.defaultConfigStatic.messageFontColor;
+                }
+
+
+            } else {
+
+            		/*If options are not defined replace the static configs in order to reset the UI on each alert*/
+                    thisOptions.titleBgColor = Dalert.defaultConfigStatic.titleBgColor;
+                    thisOptions.titleFontColor = Dalert.defaultConfigStatic.titleFontColor;
+                    thisOptions.messageBgColor = Dalert.defaultConfigStatic.messageBgColor;
+                    thisOptions.messageFontColor = Dalert.defaultConfigStatic.messageFontColor;                
+
+            }
+
+            return thisOptions;
+        },
+
+        restore: function () {
+            window.alert = originalAlert;
+            window.confirm = originalConfirm;
+        },
+
+        replaceAlert: function () {
+            window.alert = Dalert.alert;
+        },
+
+        replaceConfirm: function () {
+            window.confirm = Dalert.confirm;
+        }
+
+    };
+
+    window.dalert = Dalert;
+
+})(window, jQuery);

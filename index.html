@@ -317,7 +317,7 @@
 
     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/dalert.jquery.js"></script>
+    <script type="text/javascript" src="js/dalert.js"></script>
     <script type="text/javascript" src="js/sitedx.js"></script>
     <script type="text/javascript" src="js/shCore.js"></script>
     <script type="text/javascript" src="js/shBrushJScript.js"></script>
@@ -358,13 +358,13 @@
             });
 
             $("#replaced_alert").click(function () {
-                dalert.ReplaceAlert();
+                dalert.replaceAlert();
                 alert("Hey... I am a replaced alert");
 
             });
 
             $("#confirm_replaced").click(function () {
-                dalert.ReplaceConfirm();
+                dalert.replaceConfirm();
                 confirm("Are You Sure?", "DAlert Confirm !", function (result) {
                     if (result) {
                         dalert.alert("You've just clicked YES !");
@@ -380,9 +380,9 @@
 
                 dalert.alert("Message", "Tittle", {
                     messageFontColor: 'white',
-                    messageBgColor: 'rgb(119, 49, 134)',
-                    tittleBgColor: 'black',
-                    tittleFontColor: 'white'
+                    messageBgColor: 'green',
+                    titleBgColor: '#fff',
+                    titleBgColor: 'white'
                 });
 
 
@@ -402,8 +402,8 @@
                     }, {
                         messageFontColor: 'white',
                         messageBgColor: 'rgb(119, 49, 134)',
-                        tittleBgColor: 'black',
-                        tittleFontColor: 'white'
+                        
+                        titleFontColor: 'white'
                     }
                 );
                 //End:: DAlert 
