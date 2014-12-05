@@ -6,7 +6,7 @@
     <title>DAlert</title>
     <link type="text/css" rel="stylesheet" href="css/vind.css" />
     <link type="text/css" rel="stylesheet" href="css/jquery-ui.css" />
-
+    <link type="text/css" rel="stylesheet" href="css/dalert.css" />
 
     <link type="text/css" rel="stylesheet" href="css/shCoreDefault.css" />
     <link type="text/css" rel="stylesheet" href="css/shCore.css" />
@@ -314,6 +314,25 @@
         </p>
     </div>
 
+    <!-- DAlert Markup -->
+<!--
+    <div class="dalert">
+      <div class="dalert-content">
+        <a class="dalert-close" href="#">x</a>
+        <div class="dalert-header">I am the Pure DAlert Title</div>
+        <div class="dalert-body">
+            <div>
+                <h2>Hello I am a Pure Dalert</h2>
+            </div>
+        </div>
+        <div class="dalert-footer">
+            <button class="dalert-btn dalert-btn-blue">Ok</button>
+        </div>
+      </div>
+    </div>
+    <div class="dalert-backdrop"></div>
+-->
+    <!-- /DAlert Markup -->
 
     <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
@@ -329,6 +348,8 @@
 
         /*Doc Ready*/
         $(function () {
+            
+            dalert.dalertModal("The DAlert Title !","I am a PURE Dalert !");
 
             $("#dalert_button").click(function () {
                 //Start :: DAlert Alert Usage		

@@ -151,6 +151,51 @@ THE SOFTWARE.
         dialog: function (alertElement, settings) {
             $(alertElement).dialog(settings);
         },
+        /*Pure DAlert Modal Dialog Implementation*/
+        dalertModal: function (title, msg) {
+
+            var dalertNode, dalertNodeBack;
+
+            dalertNode = "<div class='dalert'>";
+            dalertNode += "<div class='dalert-content'>";
+            dalertNode += "<a class='dalert-close' href='#'>x</a>"
+
+            if (title) {
+                dalertNode += "<div class='dalert-header'>" + title + "</div>";
+            }
+            if (msg) {
+                dalertNode += "<div class='dalert-body'>" + msg + "</div>";
+            }
+
+            dalertNode += "<div class='dalert-footer'>";
+
+            dalertNode += "<button class='dalert-btn dalert-btn-blue' data-dalert='close'>Ok</button>";
+            dalertNode += "</div>";
+
+            dalertNode += "</div>";
+            dalertNodeBack = "<div class='dalert-backdrop'></div>";
+        
+                
+            
+            $("body").append(dalertNode);
+            $("body").append(dalertNodeBack);
+            
+            var findDataDalert = document.querySelectorAll("[data-dalert]");
+            
+            var getVal = $(findDataDalert).data("dalert");
+            
+            if(getVal == "close"){
+
+            	$(findDataDalert).click(function(){
+
+            		$(".dalert").remove();
+            		$(".dalert-backdrop").remove();
+
+            	});
+            
+            }
+
+        },
 
         closeDialog: function (element) {
             $(element).dialog("close");
@@ -199,7 +244,7 @@ THE SOFTWARE.
 
             if (options) {
 
-            	/*If all options are defined*/
+                /*If all options are defined*/
                 if (options.titleBgColor !== undefined || options.titleBgColor !== "") {
 
                     thisOptions.titleBgColor = options.titleBgColor;
@@ -247,11 +292,11 @@ THE SOFTWARE.
 
             } else {
 
-            		/*If options are not defined replace the static configs in order to reset the UI on each alert*/
-                    thisOptions.titleBgColor = Dalert.defaultConfigStatic.titleBgColor;
-                    thisOptions.titleFontColor = Dalert.defaultConfigStatic.titleFontColor;
-                    thisOptions.messageBgColor = Dalert.defaultConfigStatic.messageBgColor;
-                    thisOptions.messageFontColor = Dalert.defaultConfigStatic.messageFontColor;                
+                /*If options are not defined replace the static configs in order to reset the UI on each alert*/
+                thisOptions.titleBgColor = Dalert.defaultConfigStatic.titleBgColor;
+                thisOptions.titleFontColor = Dalert.defaultConfigStatic.titleFontColor;
+                thisOptions.messageBgColor = Dalert.defaultConfigStatic.messageBgColor;
+                thisOptions.messageFontColor = Dalert.defaultConfigStatic.messageFontColor;
 
             }
 
