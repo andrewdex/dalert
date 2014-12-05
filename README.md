@@ -51,7 +51,7 @@ dalert.ReplaceConfirm();
 Download the [latest release](https://github.com/andrewdex/dalert/archive/master.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
 
 ## GruntJS : Task for Minification of DAlert
-If you have node installed, install GruntJS Globaly and [GruntJS](http://gruntjs.com) and cd into the dalert directory then use 
+If you have node installed, install [GruntJS](http://gruntjs.com) Globaly and cd into the dalert directory then use 
 `npm install`
 
 To generate the minified file, type
