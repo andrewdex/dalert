@@ -40,6 +40,10 @@ THE SOFTWARE.
     //Dalert Main namespaceNamespace for the dalert plugin library
 
     dalert = {
+
+        originalAlert: window.alert,
+        originalConfirm: window.confirm,
+
         //Alert Dialog box Implementation
         alert: function (dalert_msg, title_msg, callback, options) {
 
@@ -306,6 +310,14 @@ THE SOFTWARE.
 
             window.confirm = dalert.confirm;
 
+        },
+
+        RestoreAlert: function () {
+            window.alert = dalert.originalAlert;
+        },
+
+        RestoreConfirm: function () {
+            window.confirm = dalert.originalConfirm;
         }
 
     };
