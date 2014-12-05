@@ -1,7 +1,7 @@
 /*
  * DAlert - Pure JS Modal/Alert/Confirm Extention
  * dalert.alert("Making the Alert Box much simpler, yet fancy");
- * Version: 1.1.0
+ * Version: 1.1.2
  * Author: Dilusha Gonagala (andrewdex)
  * Dependencies : Just JavaScript
  * Info & API : http://andrewdex.github.io/dalert/
