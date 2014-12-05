@@ -33,7 +33,7 @@ THE SOFTWARE.
  */
 
 
-(function (Dalert, $, undefined) {
+(function (Dalert, $) {
 
     "use strict";
 
@@ -95,7 +95,7 @@ THE SOFTWARE.
 
                 if (Object.prototype.toString.call(callback) === '[object Function]') {
 
-                      callbackThis = callback;
+                    callbackThis = callback;
 
                 }
 
@@ -146,8 +146,8 @@ THE SOFTWARE.
                 //Catching Errors, In Case if something goes wrong
                 //Act normal as nothing happened :) and output the native alert function.
             } catch (error) {
-                console.log(error);
-                alert(dalert_msg);
+                window.console.log(error);
+                //alert(dalert_msg);
             }
 
         },
@@ -270,13 +270,13 @@ THE SOFTWARE.
                 //Catching Errors, In Case if something goes wrong with jQuery UI,
                 //Replicate the native confirm function and handling the parameterized true false functions.
             } catch (error) {
-                console.log(error);
-                var conf_val = confirm(dalertConf_msg);
-                if (conf_val === true) {
-                    eval(trueFunction)();
-                } else {
-                    eval(falseFunction)();
-                }
+                window.console.log(error);
+//                var conf_val = confirm(dalertConf_msg);
+//                if (conf_val === true) {
+//                    eval(trueFunction)();
+//                } else {
+//                    eval(falseFunction)();
+//                }
             }
 
         },
