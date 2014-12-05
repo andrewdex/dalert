@@ -5,7 +5,7 @@
 	var Dalert = {
 
 		originalAlert: window.alert,
-		originalConfirm: window.config,
+		originalConfirm: window.confirm,
 
 		defaultConfig: {
 			title: "DAlert!",
