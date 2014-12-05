@@ -100,7 +100,7 @@
 			Dalert.byPassJqueryUi(alertSettings);
 		},
 
-		// When drop jQueryUI - Replace this for wharever replace it
+		// When drop jQueryUI - Replace this
 		dialog: function(alertElement, settings) {
 			$(alertElement).dialog(settings);
 		},
