@@ -35,6 +35,17 @@ dalert.alert("Are you sure?", "Confirm Title" , function (result) {
 });
 ```
 
+//Dalert Replace Native Alert
+```js
+dalert.ReplaceAlert();
+```
+
+//Dalert Replace Native Confirm
+
+```js
+dalert.ReplaceConfirm();
+```
+
 
 ## Getting started
 Download the [latest release](https://github.com/andrewdex/dalert/archive/master.zip) or clone the repo, `git clone git://github.com/andrewdex/dalert.git`.
