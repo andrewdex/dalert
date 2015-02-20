@@ -1,6 +1,8 @@
 DAlert 1.1.1
 ======
 
+[![Join the chat at https://gitter.im/andrewdex/dalert](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/andrewdex/dalert?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Dalert is a simple jQuery and jQuery UI plugin that easily creates a customizable alert (or confirm) window as a replacement for the native javascript alert and confirm methods.
 Dependencies : jQuery, jQuery UI
 
